@@ -1,20 +1,66 @@
 name: ldc_tool
 description: A new Flutter project.
-
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=3.6.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  mop: 2.43.9
-  cupertino_icons: ^1.0.2
+
+  # 自适应分辨率
+  flutter_screenutil: ^5.9.3
+
+  # icons
+  cupertino_icons: ^1.0.8
+
+  # 下拉刷新
+  easy_refresh: ^3.4.0
+
+  # 获取设备信息
+  device_info_plus: ^12.3.0
+
+  # 网络请求
+  dio: ^5.9.0
+
+  # # 路由
+  # go_router: ^17.0.1
+
+  # 状态管理
+  get: ^4.7.3
+
+  # 元组支持
+  tuple: ^2.0.2
+
+  # 提示框组件
+  just_the_tooltip: ^0.0.12
+
+  # 吐司组件
+  oktoast: ^3.4.0
+
+  # 日志组件
+  logger: ^2.6.2
+
+  # 可见性检测 固定版本0.3.3
+  # https://github.com/google/flutter.widgets/issues/295
+  # https://github.com/google/flutter.widgets/issues/534
+  visibility_detector: 0.3.3
+
+  # # SVG图片支持
+  # flutter_svg: ^2.2.3
+  # vector_graphics: ^1.1.19
+
+  # 图片加载组件
+  extended_image: ^10.0.1
+
+  # 权限管理
+  permission_handler: ^12.0.1
+
+  # 滚动视图观察器
+  scrollview_observer: ^1.26.2
 
 dev_dependencies:
   flutter_test:
