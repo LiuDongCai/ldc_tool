@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ldc_tool/common/router/dc_router_config.dart';
+import 'package:ldc_tool/base/router/dc_router_config.dart';
 import 'package:oktoast/oktoast.dart';
 
 void main() {
