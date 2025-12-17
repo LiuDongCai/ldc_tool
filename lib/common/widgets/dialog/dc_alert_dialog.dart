@@ -61,7 +61,7 @@ class DCAlertDialog extends StatelessWidget {
                   style: TextStyle(
                     fontSize: negativeTextFontSize ?? 16.w,
                     color: negativeTextColor ??
-                        DCColors.tw000000.withValues(alpha: 0.5),
+                        DCColors.dc000000.withValues(alpha: 0.5),
                     overflow: TextOverflow.ellipsis,
                     height: 1.1,
                   ),
@@ -72,7 +72,7 @@ class DCAlertDialog extends StatelessWidget {
                   border: Border(
                     right: BorderSide(
                       width: 1.w,
-                      color: DCColors.tw000000.withValues(alpha: 0.15),
+                      color: DCColors.dc000000.withValues(alpha: 0.15),
                     ),
                   ),
                 ),
@@ -90,7 +90,7 @@ class DCAlertDialog extends StatelessWidget {
                 positiveText,
                 style: TextStyle(
                   fontSize: positiveTextFontSize ?? 16.w,
-                  color: positiveTextColor ?? DCColors.twFF8000,
+                  color: positiveTextColor ?? DCColors.dcFF8000,
                   overflow: TextOverflow.ellipsis,
                 ),
                 textAlign: TextAlign.center,
@@ -127,7 +127,7 @@ class DCAlertDialog extends StatelessWidget {
                         title,
                         style: TextStyle(
                           color: titleColor ??
-                              DCColors.tw000000.withValues(alpha: 0.8),
+                              DCColors.dc000000.withValues(alpha: 0.8),
                           fontWeight: FontWeight.w600,
                           fontSize: titleFontSize ?? 16.w,
                         ),
@@ -138,7 +138,7 @@ class DCAlertDialog extends StatelessWidget {
                     message,
                     style: TextStyle(
                       color: messageColor ??
-                          DCColors.tw000000.withValues(alpha: 0.5),
+                          DCColors.dc000000.withValues(alpha: 0.5),
                       fontSize: messageFontSize ?? 14.w,
                       fontWeight: messageFontWeight ?? FontWeight.normal,
                       height: 1.4,
@@ -149,7 +149,7 @@ class DCAlertDialog extends StatelessWidget {
               ),
             ),
             Container(
-              color: DCColors.tw000000.withValues(alpha: 0.15),
+              color: DCColors.dc000000.withValues(alpha: 0.15),
               height: 0.5.w,
             ),
             _buildButtons(context),
@@ -158,7 +158,7 @@ class DCAlertDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
         ),
         decoration: BoxDecoration(
-          color: DCColors.twFFFFFF,
+          color: DCColors.dcFFFFFF,
           borderRadius: BorderRadius.circular(radius ?? 2.w),
         ),
       ),
@@ -173,7 +173,7 @@ class DCAlertDialog extends StatelessWidget {
     return Dialog(
       child: _buildContent(context),
       elevation: 0,
-      backgroundColor: DCColors.tw00000000,
+      backgroundColor: DCColors.dc00000000,
     );
   }
 }

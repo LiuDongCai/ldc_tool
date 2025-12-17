@@ -7,3 +7,11 @@ typedef MainLogicPutMixin<W extends StatefulWidget>
 
 typedef MainLogicConsumerMixin<W extends StatefulWidget>
     = DCLogicConsumerStateMixin<MainLogic, W>;
+
+/// 主页底部导航栏类型枚举
+enum MainBottomNavigationBarType {
+  home,
+  search,
+  tool,
+  mine,
+}

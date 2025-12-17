@@ -66,7 +66,7 @@ class DCToast {
                 message,
                 textAlign: textAlign,
                 style: TextStyle(
-                  color: DCColors.twFFFFFF,
+                  color: DCColors.dcFFFFFF,
                   fontSize: 16.sp,
                   height: 26 / 16,
                 ),
@@ -101,23 +101,23 @@ class DCToast {
     return Container(
       child: resultWidget,
       decoration: BoxDecoration(
-        color: DCColors.tw000000.withValues(alpha: 0.8),
+        color: DCColors.dc000000.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(6.w),
         boxShadow: [
           BoxShadow(
-            color: DCColors.tw000000.withValues(alpha: 0.04),
+            color: DCColors.dc000000.withValues(alpha: 0.04),
             offset: Offset(0, 6.w), // 阴影xy轴偏移量
             blurRadius: 32.w, // 阴影模糊程度
             spreadRadius: 5, // 阴影扩散程度
           ),
           BoxShadow(
-            color: DCColors.tw000000.withValues(alpha: 0.04),
+            color: DCColors.dc000000.withValues(alpha: 0.04),
             offset: Offset(0, 16.w), // 阴影xy轴偏移量
             blurRadius: 24.w, // 阴影模糊程度
             spreadRadius: 2, // 阴影扩散程度
           ),
           BoxShadow(
-            color: DCColors.tw000000.withValues(alpha: 0.08),
+            color: DCColors.dc000000.withValues(alpha: 0.08),
             offset: Offset(0, 8.w), // 阴影xy轴偏移量
             blurRadius: 10.w, // 阴影模糊程度
             spreadRadius: -5, // 阴影扩散程度
@@ -137,7 +137,7 @@ class DCToast {
     return Text(
       message,
       style: TextStyle(
-        color: DCColors.twFFFFFF,
+        color: DCColors.dcFFFFFF,
         fontSize: 16.sp,
         height: 26 / 16,
         fontWeight: FontWeight.w500,
@@ -197,7 +197,7 @@ class DCToast {
         iconWidget: Icon(
           Icons.check,
           size: 24.w,
-          color: DCColors.twFFFFFF,
+          color: DCColors.dcFFFFFF,
         ),
       ),
       duration: duration,
@@ -219,7 +219,7 @@ class DCToast {
         iconWidget: Icon(
           Icons.close_outlined,
           size: 24.w,
-          color: DCColors.twFFFFFF,
+          color: DCColors.dcFFFFFF,
         ),
       ),
       duration: duration,
