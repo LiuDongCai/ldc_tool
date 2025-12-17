@@ -137,26 +137,54 @@ class DCLog {
 
     switch (level) {
       case Level.trace:
-        logOutput.t(formattedMsg, error: error, stackTrace: stackTrace);
+        logOutput.t(
+          formattedMsg,
+          error: error,
+          stackTrace: stackTrace,
+        );
         break;
       case Level.debug:
-        logOutput.d(formattedMsg, error: error, stackTrace: stackTrace);
+        logOutput.d(
+          formattedMsg,
+          error: error,
+          stackTrace: stackTrace,
+        );
         break;
       case Level.info:
-        logOutput.i(formattedMsg, error: error, stackTrace: stackTrace);
+        logOutput.i(
+          formattedMsg,
+          error: error,
+          stackTrace: stackTrace,
+        );
         break;
       case Level.warning:
-        logOutput.w(formattedMsg, error: error, stackTrace: stackTrace);
+        logOutput.w(
+          formattedMsg,
+          error: error,
+          stackTrace: stackTrace,
+        );
         break;
       case Level.error:
-        logOutput.e(formattedMsg, error: error, stackTrace: stackTrace);
+        logOutput.e(
+          formattedMsg,
+          error: error,
+          stackTrace: stackTrace,
+        );
         break;
       case Level.fatal:
-        logOutput.f(formattedMsg, error: error, stackTrace: stackTrace);
+        logOutput.f(
+          formattedMsg,
+          error: error,
+          stackTrace: stackTrace,
+        );
         break;
       default:
-        logOutput.log(level, formattedMsg,
-            error: error, stackTrace: stackTrace);
+        logOutput.log(
+          level,
+          formattedMsg,
+          error: error,
+          stackTrace: stackTrace,
+        );
     }
   }
 }
