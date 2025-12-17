@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ldc_tool/common/widgets/image/dc_image.dart';
 import 'package:ldc_tool/features/home/logic/home_logic.dart';
 import 'package:ldc_tool/features/home/header/home_header.dart';
+import 'package:ldc_tool/gen/assets.gen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,13 +33,22 @@ class HomePageState extends State<HomePage> with HomeLogicPutMixin<HomePage> {
 
   /// 构建主体内容
   Widget _buildBody() {
-    Widget resultWidget = Center(
-      child: Text(
-        'HomePage2',
-        style: TextStyle(
-          fontSize: 20.sp,
+    Widget resultWidget = Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        DCImage.asset(
+          Assets.image.common.dcCommonError.path,
+          width: 100.w,
+          height: 100.h,
         ),
-      ),
+        Text(
+          'HomePage2',
+          style: TextStyle(
+            fontSize: 20.sp,
+          ),
+        ),
+      ],
     );
     return resultWidget;
   }
