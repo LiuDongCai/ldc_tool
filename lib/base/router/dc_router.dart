@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class DCRouter {
   /// 打开新页面
@@ -9,10 +8,10 @@ class DCRouter {
     String path, {
     Map<String, String>? arguments,
   }) {
-    GoRouter.of(context).push(
-      path,
-      extra: arguments,
-    );
+    // GoRouter.of(context).push(
+    //   path,
+    //   extra: arguments,
+    // );
   }
 
   /// 打开并替换当前页面
@@ -22,30 +21,30 @@ class DCRouter {
     String path, {
     Map<String, String>? arguments,
   }) {
-    GoRouter.of(context).go(
-      path,
-      extra: arguments,
-    );
+    // GoRouter.of(context).go(
+    //   path,
+    //   extra: arguments,
+    // );
   }
 
   /// 返回上一页
   static void close(BuildContext context) {
-    GoRouter.of(context).pop();
+    // GoRouter.of(context).pop();
   }
 
   /// 获取路由参数
-  static Map<String, dynamic>? arguments(
+  static dynamic arguments(
     BuildContext context,
     String key, {
     var defaultValue,
   }) {
-    final state = GoRouterState.of(context);
-    if (state.extra == null) {
-      return null;
-    }
-    if (state.extra is Map<String, dynamic>) {
-      return (state.extra as Map<String, dynamic>)[key] ?? defaultValue;
-    }
+    // final state = GoRouterState.of(context);
+    // if (state.extra == null) {
+    //   return null;
+    // }
+    // if (state.extra is Map<String, dynamic>) {
+    //   return (state.extra as Map<String, dynamic>)[key] ?? defaultValue;
+    // }
     return defaultValue;
   }
 }
