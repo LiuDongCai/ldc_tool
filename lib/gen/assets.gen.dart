@@ -14,6 +14,9 @@ class $AssetsImageGen {
 
   /// Directory path: assets/image/common
   $AssetsImageCommonGen get common => const $AssetsImageCommonGen();
+
+  /// Directory path: assets/image/eat
+  $AssetsImageEatGen get eat => const $AssetsImageEatGen();
 }
 
 class $AssetsImageCommonGen {
@@ -25,6 +28,25 @@ class $AssetsImageCommonGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [dcCommonError];
+}
+
+class $AssetsImageEatGen {
+  const $AssetsImageEatGen();
+
+  /// File path: assets/image/eat/eat_banner1.png
+  AssetGenImage get eatBanner1 =>
+      const AssetGenImage('assets/image/eat/eat_banner1.png');
+
+  /// File path: assets/image/eat/eat_banner2.png
+  AssetGenImage get eatBanner2 =>
+      const AssetGenImage('assets/image/eat/eat_banner2.png');
+
+  /// File path: assets/image/eat/eat_banner3.png
+  AssetGenImage get eatBanner3 =>
+      const AssetGenImage('assets/image/eat/eat_banner3.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [eatBanner1, eatBanner2, eatBanner3];
 }
 
 class Assets {

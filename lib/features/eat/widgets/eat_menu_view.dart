@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
-import 'package:ldc_tool/features/home/header/home_header.dart';
-import 'package:ldc_tool/features/home/logic/home_logic_menu.dart';
+import 'package:ldc_tool/features/eat/header/eat_header.dart';
+import 'package:ldc_tool/features/eat/state/eat_state.dart';
 import 'package:ldc_tool/features/common/model/dc_menu_model.dart';
-import 'package:ldc_tool/features/home/state/home_state.dart';
 
-/// 首页菜单栏
-class HomeMenuView extends StatefulWidget {
-  const HomeMenuView({super.key});
+/// 点餐菜单栏
+class EatMenuView extends StatefulWidget {
+  const EatMenuView({super.key});
 
   @override
-  State<HomeMenuView> createState() => _HomeMenuViewState();
+  State<EatMenuView> createState() => _EatMenuViewState();
 }
 
-class _HomeMenuViewState extends State<HomeMenuView>
-    with HomeLogicConsumerMixin<HomeMenuView> {
-  HomeState get state => logic.state;
+class _EatMenuViewState extends State<EatMenuView>
+    with EatLogicConsumerMixin<EatMenuView> {
+  EatState get state => logic.state;
 
   /// 菜单列表数据
-  List<DCMenuModel> get menuList => state.menuList;
+  List<DCMenuModel> get menuList => state.eatMenuList;
 
   @override
   Widget build(BuildContext context) {
     // 网格菜单
     Widget resultWidget = GridView.builder(
-      controller: state.menuController,
+      controller: state.eatMenuController,
       padding: EdgeInsets.zero,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
+import 'package:ldc_tool/features/eat/page/eat_page.dart';
 import 'package:ldc_tool/features/main/logic/main_logic.dart';
 import 'package:ldc_tool/features/main/header/main_header.dart';
 import 'package:ldc_tool/features/home/page/home_page.dart';
@@ -53,9 +54,9 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
                 // 首页
                 resultWidget = HomePage(key: globalKey);
                 break;
-              case MainBottomNavigationBarType.search:
-                // 搜索
-                resultWidget = Container();
+              case MainBottomNavigationBarType.eat:
+                // 点餐
+                resultWidget = EatPage(key: globalKey);
                 break;
               case MainBottomNavigationBarType.tool:
                 // 工具
@@ -108,8 +109,8 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
           label: '首页',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: '搜索',
+          icon: Icon(Icons.restaurant),
+          label: '点餐',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.build),

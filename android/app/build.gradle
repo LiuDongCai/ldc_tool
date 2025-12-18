@@ -29,7 +29,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.ldc.ldc_tool"
-    compileSdkVersion 35
+    compileSdkVersion 36
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17

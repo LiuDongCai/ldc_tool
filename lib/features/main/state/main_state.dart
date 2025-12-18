@@ -12,7 +12,7 @@ class MainState {
   /// 底部导航栏集合
   List<MainBottomNavigationBarType> bottomNavigationBarTypeList = [
     MainBottomNavigationBarType.home,
-    MainBottomNavigationBarType.search,
+    MainBottomNavigationBarType.eat,
     MainBottomNavigationBarType.tool,
     MainBottomNavigationBarType.mine,
   ];
@@ -20,7 +20,7 @@ class MainState {
   /// 底部导航栏集合的 key
   Map<MainBottomNavigationBarType, GlobalKey> globalKeys = {
     MainBottomNavigationBarType.home: GlobalKey(),
-    MainBottomNavigationBarType.search: GlobalKey(),
+    MainBottomNavigationBarType.eat: GlobalKey(),
     MainBottomNavigationBarType.tool: GlobalKey(),
     MainBottomNavigationBarType.mine: GlobalKey(),
   };

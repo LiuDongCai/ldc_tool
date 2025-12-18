@@ -11,7 +11,7 @@ typedef MainLogicConsumerMixin<W extends StatefulWidget>
 /// 主页底部导航栏类型枚举
 enum MainBottomNavigationBarType {
   home,
-  search,
+  eat,
   tool,
   mine,
 }
