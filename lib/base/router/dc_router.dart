@@ -1,50 +1,50 @@
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DCRouter {
   /// 打开新页面
-  /// context.push(path)：将新页面推入到当前的路由堆栈之上，这和 Navigator.push 行为一致，通常用于从列表页进入详情页。
+  /// 使用 Get.toNamed()：将新页面推入到当前的路由堆栈之上，保留当前页面，可以返回
+  /// 适用于：从列表页进入详情页等场景
   static void open(
-    BuildContext context,
-    String path, {
+    String pageName, {
     Map<String, String>? arguments,
   }) {
-    // GoRouter.of(context).push(
-    //   path,
-    //   extra: arguments,
-    // );
+    Get.toNamed(
+      pageName,
+      arguments: arguments,
+    );
   }
 
   /// 打开并替换当前页面
-  /// context.go(path)：跳转到新页面，它会替换当前的路由堆栈。这更适用于 Web 行为或主标签页切换。
+  /// 使用 Get.offNamed()：跳转到新页面，替换当前的路由堆栈，无法返回到被替换的页面
+  /// 适用于：Web 行为或主标签页切换等场景
   static void openAndReplace(
-    BuildContext context,
-    String path, {
+    String pageName, {
     Map<String, String>? arguments,
   }) {
-    // GoRouter.of(context).go(
-    //   path,
-    //   extra: arguments,
-    // );
+    // Get.offNamed() 和 Get.offAllNamed() 的区别：
+    // Get.offNamed() 直接替换当前页面,新页面占据被替换页面的位置，堆栈深度不变,适用：登录后替换登录页、标签页切换等
+    // Get.offAndToNamed() 先移除当前页面（off），再推送新页面（to）,先移除当前页面，再添加新页面,适用：需要先清理当前页面再导航的场景
+    Get.offAndToNamed(
+      pageName,
+      arguments: arguments,
+    );
   }
 
   /// 返回上一页
-  static void close(BuildContext context) {
-    // GoRouter.of(context).pop();
+  static void close() {
+    Get.back();
   }
 
   /// 获取路由参数
   static dynamic arguments(
-    BuildContext context,
     String key, {
     var defaultValue,
-  }) {
-    // final state = GoRouterState.of(context);
-    // if (state.extra == null) {
-    //   return null;
-    // }
-    // if (state.extra is Map<String, dynamic>) {
-    //   return (state.extra as Map<String, dynamic>)[key] ?? defaultValue;
-    // }
-    return defaultValue;
-  }
+  }) =>
+      Get.parameters[key] ?? Get.arguments?[key] ?? defaultValue;
+
+  /// 获取所有路由参数
+  static dynamic get allArguments => {
+        ...Get.parameters,
+        ...((Get.arguments is Map) ? Get.arguments : {}),
+      };
 }

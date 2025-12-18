@@ -69,10 +69,7 @@ class _HomeMenuViewState extends State<HomeMenuView>
     resultWidget = GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        logic.handleMenuClick(
-          context,
-          model,
-        );
+        logic.handleMenuClick(model);
       },
       child: resultWidget,
     );

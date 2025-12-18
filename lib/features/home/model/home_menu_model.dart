@@ -1,11 +1,11 @@
 class HomeMenuModel {
   final String title;
   final String icon;
-  final String route;
+  final String router;
 
   HomeMenuModel({
     required this.title,
     required this.icon,
-    required this.route,
+    required this.router,
   });
 }
