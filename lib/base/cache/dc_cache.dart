@@ -6,6 +6,7 @@ import 'dart:io';
 /// 缓存组件
 /// 基于 Hive CE 封装的本地缓存工具类
 /// 支持多 Box（命名空间）管理，提供便捷的 CRUD 操作
+/// 支持设置过期时间
 class DCCache {
   DCCache._();
 
@@ -101,15 +102,42 @@ class DCCache {
   /// [key] 存储的键
   /// [value] 存储的值（支持 Hive 支持的所有类型）
   /// [boxName] 可选，指定 Box 名称，不传则使用默认 Box
+  /// [expireDuration] 可选，过期时长（从当前时间开始计算），不传则永不过期
+  /// [expireAt] 可选，过期时间点，不传则永不过期
+  /// 注意：expireDuration 和 expireAt 同时设置时，expireAt 优先级更高
   Future<void> put(
     String key,
     dynamic value, {
     String? boxName,
+    Duration? expireDuration,
+    DateTime? expireAt,
   }) async {
     try {
       final box = await _openBox(boxName: boxName);
-      await box.put(key, value);
-      DCLog.d('DCCache 存储数据: $key');
+
+      // 计算过期时间戳
+      int? expireTimestamp;
+      if (expireAt != null) {
+        expireTimestamp = expireAt.millisecondsSinceEpoch;
+      } else if (expireDuration != null) {
+        expireTimestamp =
+            DateTime.now().add(expireDuration).millisecondsSinceEpoch;
+      }
+
+      // 如果有过期时间，使用包装类存储
+      if (expireTimestamp != null) {
+        final cacheItem = _CacheItem(
+          value: value,
+          expireAt: expireTimestamp,
+        );
+        await box.put(key, cacheItem.toMap());
+        DCLog.d(
+            'DCCache 存储数据（带过期时间）: $key, 过期时间: ${DateTime.fromMillisecondsSinceEpoch(expireTimestamp)}');
+      } else {
+        // 没有过期时间，直接存储
+        await box.put(key, value);
+        DCLog.d('DCCache 存储数据: $key');
+      }
     } catch (e, stackTrace) {
       DCLog.e(
         'DCCache 存储数据失败: $key',
@@ -120,11 +148,39 @@ class DCCache {
     }
   }
 
+  /// 检查并解析缓存值（处理过期时间）
+  /// 返回解析后的值，如果过期则返回 null
+  dynamic _parseCacheValue(
+    dynamic value,
+    String key,
+    Box box,
+  ) {
+    // 检查是否是带过期时间的格式（Map 且包含 expireAt）
+    if (value is Map && value.containsKey('expireAt')) {
+      try {
+        final cacheItem = _CacheItem.fromMap(value);
+        if (cacheItem.isExpired) {
+          // 数据已过期，删除并返回 null
+          box.delete(key);
+          DCLog.d('DCCache 数据已过期并删除: $key');
+          return null;
+        }
+        // 数据未过期，返回实际值
+        return cacheItem.value;
+      } catch (e) {
+        DCLog.w('DCCache 解析过期数据失败: $key, 返回原始值');
+        return value;
+      }
+    }
+    // 不是带过期时间的格式，直接返回
+    return value;
+  }
+
   /// 读取数据（同步方法）
   /// [key] 读取的键
   /// [defaultValue] 可选，如果键不存在时返回的默认值
   /// [boxName] 可选，指定 Box 名称，不传则使用默认 Box
-  /// 返回存储的值，如果不存在则返回 null 或 defaultValue
+  /// 返回存储的值，如果不存在或已过期则返回 null 或 defaultValue
   /// 注意：如果 Box 未打开，会返回 defaultValue，建议先调用 put 方法或使用 getAsync 方法
   T? get<T>(
     String key, {
@@ -139,9 +195,15 @@ class DCCache {
         return defaultValue;
       }
 
-      final value = box.get(key, defaultValue: defaultValue);
-      if (value == null) {
+      final rawValue = box.get(key);
+      if (rawValue == null) {
         DCLog.d('DCCache 读取数据为空: $key');
+        return defaultValue;
+      }
+
+      // 检查并处理过期时间
+      final value = _parseCacheValue(rawValue, key, box);
+      if (value == null) {
         return defaultValue;
       }
 
@@ -166,7 +228,7 @@ class DCCache {
   /// [key] 读取的键
   /// [defaultValue] 可选，如果键不存在时返回的默认值
   /// [boxName] 可选，指定 Box 名称，不传则使用默认 Box
-  /// 返回存储的值，如果不存在则返回 null 或 defaultValue
+  /// 返回存储的值，如果不存在或已过期则返回 null 或 defaultValue
   /// 如果 Box 未打开，会自动打开后再读取
   Future<T?> getAsync<T>(
     String key, {
@@ -175,9 +237,15 @@ class DCCache {
   }) async {
     try {
       final box = await _openBox(boxName: boxName);
-      final value = box.get(key, defaultValue: defaultValue);
-      if (value == null) {
+      final rawValue = box.get(key);
+      if (rawValue == null) {
         DCLog.d('DCCache 读取数据为空: $key');
+        return defaultValue;
+      }
+
+      // 检查并处理过期时间
+      final value = _parseCacheValue(rawValue, key, box);
+      if (value == null) {
         return defaultValue;
       }
 
@@ -360,6 +428,45 @@ class DCCache {
     }
   }
 
+  /// 清理过期数据
+  /// [boxName] 可选，指定 Box 名称，不传则使用默认 Box
+  /// 返回清理的过期数据数量
+  Future<int> clearExpired({String? boxName}) async {
+    try {
+      final box = await _openBox(boxName: boxName);
+      int clearedCount = 0;
+      final keys = box.keys.toList();
+
+      for (final key in keys) {
+        final rawValue = box.get(key);
+        if (rawValue is Map && rawValue.containsKey('expireAt')) {
+          try {
+            final cacheItem = _CacheItem.fromMap(rawValue);
+            if (cacheItem.isExpired) {
+              await box.delete(key);
+              clearedCount++;
+            }
+          } catch (e) {
+            // 解析失败，跳过
+            continue;
+          }
+        }
+      }
+
+      if (clearedCount > 0) {
+        DCLog.d('DCCache 清理过期数据: $clearedCount 条');
+      }
+      return clearedCount;
+    } catch (e, stackTrace) {
+      DCLog.e(
+        'DCCache 清理过期数据失败: ${boxName ?? _defaultBoxName}',
+        error: e,
+        stackTrace: stackTrace,
+      );
+      rethrow;
+    }
+  }
+
   /// 监听 Box 的变化
   /// [boxName] 可选，指定 Box 名称，不传则使用默认 Box
   /// 返回 Stream，可以监听 Box 中数据的变化
@@ -386,5 +493,39 @@ class DCCache {
       );
       rethrow;
     }
+  }
+}
+
+/// 缓存数据包装类（内部使用）
+/// 用于存储数据和过期时间
+class _CacheItem {
+  final dynamic value;
+  final int? expireAt; // 过期时间戳（毫秒），null 表示永不过期
+
+  _CacheItem({
+    required this.value,
+    this.expireAt,
+  });
+
+  /// 检查是否过期
+  bool get isExpired {
+    if (expireAt == null) return false;
+    return DateTime.now().millisecondsSinceEpoch > expireAt!;
+  }
+
+  /// 转换为 Map（用于 Hive 存储）
+  Map<String, dynamic> toMap() {
+    return {
+      'value': value,
+      'expireAt': expireAt,
+    };
+  }
+
+  /// 从 Map 创建（用于 Hive 读取）
+  static _CacheItem fromMap(Map<dynamic, dynamic> map) {
+    return _CacheItem(
+      value: map['value'],
+      expireAt: map['expireAt'] as int?,
+    );
   }
 }
