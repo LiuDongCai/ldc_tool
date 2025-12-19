@@ -4,8 +4,6 @@ import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/common/widgets/image/dc_cached_image.dart';
 import 'package:ldc_tool/features/eat/header/eat_header.dart';
 import 'package:ldc_tool/features/eat/model/eat_model.dart';
-import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
-import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
 
 class EatListItemView extends StatefulWidget {
   const EatListItemView({
@@ -19,10 +17,7 @@ class EatListItemView extends StatefulWidget {
   State<EatListItemView> createState() => _EatListItemViewState();
 }
 
-class _EatListItemViewState extends State<EatListItemView>
-    with EatListLogicConsumerMixin<EatListItemView> {
-  EatListState get state => logic.state;
-
+class _EatListItemViewState extends State<EatListItemView> {
   EatModel get model => widget.model;
 
   @override

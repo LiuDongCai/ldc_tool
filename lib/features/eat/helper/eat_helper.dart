@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:ldc_tool/features/eat/header/eat_header.dart';
 import 'package:ldc_tool/features/eat/model/eat_model.dart';
 
 class EatHelper {
@@ -43,5 +44,21 @@ class EatHelper {
     final drinkList = await getEatDrinkList();
     final dessertList = await getEatDessertList();
     return [...mainList, ...drinkList, ...dessertList];
+  }
+
+  /// 获取餐馆列表-根据大类
+  static Future<List<EatModel>> getEatList({
+    required EatMainType mainType,
+  }) async {
+    switch (mainType) {
+      case EatMainType.all:
+        return await getEatAllList();
+      case EatMainType.main:
+        return await getEatMainList();
+      case EatMainType.drink:
+        return await getEatDrinkList();
+      case EatMainType.dessert:
+        return await getEatDessertList();
+    }
   }
 }

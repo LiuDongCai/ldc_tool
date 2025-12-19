@@ -136,10 +136,7 @@ enum SectionType {
   guangming(9),
 
   /// 大鹏
-  dapeng(10),
-
-  /// 其他
-  other(99);
+  dapeng(10);
 
   final int type;
 
@@ -157,7 +154,6 @@ enum SectionType {
         SectionType.pingshan => '坪山区',
         SectionType.guangming => '光明区',
         SectionType.dapeng => '大鹏新区',
-        SectionType.other => '其他',
       };
 }
 

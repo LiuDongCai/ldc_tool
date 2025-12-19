@@ -15,10 +15,5 @@ mixin HomeStateMenu on HomeCommonState {
       icon: Assets.image.home.homeIcEat.path,
       page: DCPages.eat,
     ),
-    DCMenuModel(
-      title: '可爱',
-      icon: Assets.image.common.dcCommonError.path,
-      page: DCPages.home,
-    ),
   ];
 }

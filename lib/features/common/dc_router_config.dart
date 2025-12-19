@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:ldc_tool/features/eat/page/eat_page.dart';
 import 'package:ldc_tool/features/eat_list/page/eat_list_page.dart';
+import 'package:ldc_tool/features/eat_random/page/eat_random_page.dart';
 import 'package:ldc_tool/features/home/page/home_page.dart';
 import 'package:ldc_tool/features/main/page/main_page.dart';
 
@@ -22,6 +23,10 @@ final router = [
     name: DCPages.eatList,
     page: () => const EatListPage(),
   ),
+  GetPage(
+    name: DCPages.eatRandom,
+    page: () => const EatRandomPage(),
+  ),
 ];
 
 class DCPages {
@@ -36,4 +41,7 @@ class DCPages {
 
   /// 点餐列表
   static const String eatList = '/main/eat_list';
+
+  /// 随机点餐
+  static const String eatRandom = '/main/eat_random';
 }

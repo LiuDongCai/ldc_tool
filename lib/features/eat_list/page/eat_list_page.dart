@@ -42,6 +42,20 @@ class EatListPageState extends State<EatListPage>
             height: 28 / 18,
           ),
         ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              logic.handleRandomEatClick();
+            },
+            child: Text(
+              '帮我选择',
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: DCColors.dc42CC8F,
+              ),
+            ),
+          ),
+        ],
         centerTitle: true,
         backgroundColor: DCColors.dcFFFFFF,
         elevation: 0,
