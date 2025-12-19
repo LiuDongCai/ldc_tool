@@ -12,13 +12,13 @@ mixin HomeStateMenu on HomeCommonState {
   List<DCMenuModel> menuList = [
     DCMenuModel(
       title: '点餐',
-      icon: Assets.image.common.dcCommonError.path,
-      router: DCPages.eat,
+      icon: Assets.image.home.homeIcEat.path,
+      page: DCPages.eat,
     ),
     DCMenuModel(
       title: '可爱',
       icon: Assets.image.common.dcCommonError.path,
-      router: DCPages.home,
+      page: DCPages.home,
     ),
   ];
 }

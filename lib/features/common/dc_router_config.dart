@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:ldc_tool/features/eat/page/eat_page.dart';
+import 'package:ldc_tool/features/eat_list/page/eat_list_page.dart';
 import 'package:ldc_tool/features/home/page/home_page.dart';
 import 'package:ldc_tool/features/main/page/main_page.dart';
 
@@ -17,6 +18,10 @@ final router = [
     name: DCPages.eat,
     page: () => const EatPage(),
   ),
+  GetPage(
+    name: DCPages.eatList,
+    page: () => const EatListPage(),
+  ),
 ];
 
 class DCPages {
@@ -28,4 +33,7 @@ class DCPages {
 
   /// 点餐
   static const String eat = '/main/eat';
+
+  /// 点餐列表
+  static const String eatList = '/main/eat_list';
 }

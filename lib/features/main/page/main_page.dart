@@ -94,14 +94,14 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
         fontWeight: FontWeight.w500,
       ),
       selectedIconTheme: IconThemeData(
-        color: DCColors.dc006AFF,
+        color: DCColors.dc42CC8F,
         size: 26.w,
       ),
       unselectedIconTheme: IconThemeData(
         color: DCColors.dc666666,
         size: 24.w,
       ),
-      selectedItemColor: DCColors.dc006AFF,
+      selectedItemColor: DCColors.dc42CC8F,
       unselectedItemColor: DCColors.dc666666,
       items: const [
         BottomNavigationBarItem(

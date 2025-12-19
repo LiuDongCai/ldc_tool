@@ -111,3 +111,7 @@ flutter:
     - assets/image/
     - assets/image/common/
     - assets/image/eat/
+    - assets/image/home/
+    - assets/json/eat/eat_main.json
+    - assets/json/eat/eat_drink.json
+    - assets/json/eat/eat_dessert.json

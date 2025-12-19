@@ -61,17 +61,20 @@ enum FoodType {
   /// 小吃
   snack(15),
 
+  /// 麻辣烫
+  malangtang(16),
+
   /// 面包蛋糕
-  breadCake(16),
+  breadCake(17),
 
   /// 咖啡奶茶
-  coffeeTea(17),
+  coffeeTea(18),
 
   /// 甜品
-  dessert(18),
+  dessert(19),
 
   /// 其他
-  other(19);
+  other(20);
 
   final int type;
 
@@ -94,6 +97,7 @@ enum FoodType {
         FoodType.riceNoodle => '米粉面馆',
         FoodType.fastFood => '快餐',
         FoodType.snack => '小吃',
+        FoodType.malangtang => '麻辣烫',
         FoodType.breadCake => '面包蛋糕',
         FoodType.coffeeTea => '咖啡奶茶',
         FoodType.dessert => '甜品',
@@ -143,16 +147,16 @@ enum SectionType {
 
   /// 获取地区名称
   String get name => switch (this) {
-        SectionType.longhua => '龙华',
-        SectionType.futian => '福田',
-        SectionType.nanshan => '南山',
-        SectionType.luohu => '罗湖',
-        SectionType.baoan => '宝安',
-        SectionType.longgang => '龙岗',
-        SectionType.yantian => '盐田',
-        SectionType.pingshan => '坪山',
-        SectionType.guangming => '光明',
-        SectionType.dapeng => '大鹏',
+        SectionType.longhua => '龙华区',
+        SectionType.futian => '福田区',
+        SectionType.nanshan => '南山区',
+        SectionType.luohu => '罗湖区',
+        SectionType.baoan => '宝安区',
+        SectionType.longgang => '龙岗区',
+        SectionType.yantian => '盐田区',
+        SectionType.pingshan => '坪山区',
+        SectionType.guangming => '光明区',
+        SectionType.dapeng => '大鹏新区',
         SectionType.other => '其他',
       };
 }
@@ -173,5 +177,32 @@ enum CashbackPlatform {
   String get name => switch (this) {
         CashbackPlatform.huitailang => '灰太狼',
         CashbackPlatform.waimai => '歪麦',
+      };
+}
+
+/// 点餐大类
+enum EatMainType {
+  /// 全部
+  all(1),
+
+  /// 主食
+  main(2),
+
+  /// 饮品
+  drink(3),
+
+  /// 甜点
+  dessert(3);
+
+  final int type;
+
+  const EatMainType(this.type);
+
+  /// 获取点餐大类名称
+  String get name => switch (this) {
+        EatMainType.all => '全部',
+        EatMainType.main => '主食',
+        EatMainType.drink => '饮品',
+        EatMainType.dessert => '甜点',
       };
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/features/eat/header/eat_header.dart';
+import 'package:ldc_tool/features/eat/logic/eat_logic_menu.dart';
 import 'package:ldc_tool/features/eat/state/eat_state.dart';
 import 'package:ldc_tool/features/common/model/dc_menu_model.dart';
 
@@ -50,16 +51,16 @@ class _EatMenuViewState extends State<EatMenuView>
       children: [
         Image.asset(
           model.icon,
-          width: 45.w,
-          height: 45.w,
+          width: 40.w,
+          height: 40.w,
         ),
-        SizedBox(height: 8.w),
+        SizedBox(height: 6.w),
         Text(
           model.title,
           style: TextStyle(
             fontSize: 14.sp,
             color: DCColors.dc333333,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ],

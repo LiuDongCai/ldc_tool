@@ -17,6 +17,16 @@ class $AssetsImageGen {
 
   /// Directory path: assets/image/eat
   $AssetsImageEatGen get eat => const $AssetsImageEatGen();
+
+  /// Directory path: assets/image/home
+  $AssetsImageHomeGen get home => const $AssetsImageHomeGen();
+}
+
+class $AssetsJsonGen {
+  const $AssetsJsonGen();
+
+  /// Directory path: assets/json/eat
+  $AssetsJsonEatGen get eat => const $AssetsJsonEatGen();
 }
 
 class $AssetsImageCommonGen {
@@ -45,14 +55,66 @@ class $AssetsImageEatGen {
   AssetGenImage get eatBanner3 =>
       const AssetGenImage('assets/image/eat/eat_banner3.png');
 
+  /// File path: assets/image/eat/eat_dessert.png
+  AssetGenImage get eatDessert =>
+      const AssetGenImage('assets/image/eat/eat_dessert.png');
+
+  /// File path: assets/image/eat/eat_drink.png
+  AssetGenImage get eatDrink =>
+      const AssetGenImage('assets/image/eat/eat_drink.png');
+
+  /// File path: assets/image/eat/eat_main.png
+  AssetGenImage get eatMain =>
+      const AssetGenImage('assets/image/eat/eat_main.png');
+
+  /// File path: assets/image/eat/eat_restaurant.png
+  AssetGenImage get eatRestaurant =>
+      const AssetGenImage('assets/image/eat/eat_restaurant.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [eatBanner1, eatBanner2, eatBanner3];
+  List<AssetGenImage> get values => [
+    eatBanner1,
+    eatBanner2,
+    eatBanner3,
+    eatDessert,
+    eatDrink,
+    eatMain,
+    eatRestaurant,
+  ];
+}
+
+class $AssetsImageHomeGen {
+  const $AssetsImageHomeGen();
+
+  /// File path: assets/image/home/home_ic_eat.png
+  AssetGenImage get homeIcEat =>
+      const AssetGenImage('assets/image/home/home_ic_eat.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [homeIcEat];
+}
+
+class $AssetsJsonEatGen {
+  const $AssetsJsonEatGen();
+
+  /// File path: assets/json/eat/eat_dessert.json
+  String get eatDessert => 'assets/json/eat/eat_dessert.json';
+
+  /// File path: assets/json/eat/eat_drink.json
+  String get eatDrink => 'assets/json/eat/eat_drink.json';
+
+  /// File path: assets/json/eat/eat_main.json
+  String get eatMain => 'assets/json/eat/eat_main.json';
+
+  /// List of all assets
+  List<String> get values => [eatDessert, eatDrink, eatMain];
 }
 
 class Assets {
   const Assets._();
 
   static const $AssetsImageGen image = $AssetsImageGen();
+  static const $AssetsJsonGen json = $AssetsJsonGen();
 }
 
 class AssetGenImage {

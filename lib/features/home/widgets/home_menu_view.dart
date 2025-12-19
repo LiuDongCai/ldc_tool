@@ -51,16 +51,16 @@ class _HomeMenuViewState extends State<HomeMenuView>
       children: [
         Image.asset(
           model.icon,
-          width: 45.w,
-          height: 45.w,
+          width: 40.w,
+          height: 40.w,
         ),
-        SizedBox(height: 8.w),
+        SizedBox(height: 6.w),
         Text(
           model.title,
           style: TextStyle(
             fontSize: 14.sp,
             color: DCColors.dc333333,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ],

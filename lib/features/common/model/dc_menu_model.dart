@@ -1,11 +1,13 @@
 class DCMenuModel {
   final String title;
   final String icon;
-  final String router;
+  final String page;
+  final Map<String, dynamic>? params;
 
   DCMenuModel({
     required this.title,
     required this.icon,
-    required this.router,
+    required this.page,
+    this.params,
   });
 }

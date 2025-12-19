@@ -6,7 +6,7 @@ class DCRouter {
   /// 适用于：从列表页进入详情页等场景
   static void open(
     String pageName, {
-    Map<String, String>? arguments,
+    Map<String, dynamic>? arguments,
   }) {
     Get.toNamed(
       pageName,
@@ -19,7 +19,7 @@ class DCRouter {
   /// 适用于：Web 行为或主标签页切换等场景
   static void openAndReplace(
     String pageName, {
-    Map<String, String>? arguments,
+    Map<String, dynamic>? arguments,
   }) {
     // Get.offNamed() 和 Get.offAllNamed() 的区别：
     // Get.offNamed() 直接替换当前页面,新页面占据被替换页面的位置，堆栈深度不变,适用：登录后替换登录页、标签页切换等
