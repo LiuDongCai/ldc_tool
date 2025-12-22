@@ -12,35 +12,39 @@ mixin EatStateMenu on EatCommonState {
   /// 菜单列表
   List<DCMenuModel> eatMenuList = [
     DCMenuModel(
-      title: '全部',
+      title: EatMainType.all.name,
       icon: Assets.image.eat.eatRestaurant.path,
       page: DCPages.eatList,
       params: {
         'type': EatMainType.all.type,
+        'title': EatMainType.all.name,
       },
     ),
     DCMenuModel(
-      title: '主食',
+      title: EatMainType.main.name,
       icon: Assets.image.eat.eatMain.path,
       page: DCPages.eatList,
       params: {
         'type': EatMainType.main.type,
+        'title': EatMainType.main.name,
       },
     ),
     DCMenuModel(
-      title: '饮品',
+      title: EatMainType.drink.name,
       icon: Assets.image.eat.eatDrink.path,
       page: DCPages.eatList,
       params: {
         'type': EatMainType.drink.type,
+        'title': EatMainType.drink.name,
       },
     ),
     DCMenuModel(
-      title: '甜点',
+      title: EatMainType.dessert.name,
       icon: Assets.image.eat.eatDessert.path,
       page: DCPages.eatList,
       params: {
         'type': EatMainType.dessert.type,
+        'title': EatMainType.dessert.name,
       },
     ),
   ];

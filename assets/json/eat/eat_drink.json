@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "id": 1001,
+        "name": "BENCHCAFE·板凳咖啡",
+        "image": "http://p0.meituan.net/biztone/62b474545760df9983f148c5a4a974ff520359.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            18
+        ],
+        "great_food": "椰青美式",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            1,
+            2
+        ],
+        "score": 4.7,
+        "url": "",
+        "remark": ""
+    }
+]

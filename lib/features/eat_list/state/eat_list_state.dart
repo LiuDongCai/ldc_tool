@@ -10,5 +10,8 @@ class EatListState {
   ScrollController scrollController = ScrollController();
 
   /// 点餐大类
-  EatMainType eatMainType = EatMainType.main;
+  EatMainType eatMainType = EatMainType.all;
+
+  /// 点餐大类名称
+  String eatMainTypeName = EatMainType.all.name;
 }

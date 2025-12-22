@@ -64,14 +64,11 @@ enum FoodType {
   /// 麻辣烫
   malangtang(16),
 
-  /// 面包蛋糕
-  breadCake(17),
+  /// 面包甜品
+  dessert(17),
 
-  /// 咖啡奶茶
-  coffeeTea(18),
-
-  /// 甜品
-  dessert(19),
+  /// 饮品
+  drink(18),
 
   /// 其他
   other(20);
@@ -98,9 +95,8 @@ enum FoodType {
         FoodType.fastFood => '快餐',
         FoodType.snack => '小吃',
         FoodType.malangtang => '麻辣烫',
-        FoodType.breadCake => '面包蛋糕',
-        FoodType.coffeeTea => '咖啡奶茶',
-        FoodType.dessert => '甜品',
+        FoodType.drink => '饮品',
+        FoodType.dessert => '面包甜品',
         FoodType.other => '其他',
       };
 }
@@ -188,7 +184,7 @@ enum EatMainType {
   drink(3),
 
   /// 甜点
-  dessert(3);
+  dessert(4);
 
   final int type;
 

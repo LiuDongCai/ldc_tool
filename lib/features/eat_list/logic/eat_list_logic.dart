@@ -13,12 +13,19 @@ class EatListLogic extends GetxController {
     super.onInit();
 
     // 接收路由参数
-    final type = DCRouter.arguments('type');
+    final type = DCRouter.arguments(
+      'type',
+      defaultValue: EatMainType.all.type,
+    );
     if (type != null) {
       state.eatMainType = EatMainType.values.firstWhere(
         (element) => element.type == type,
       );
     }
+    state.eatMainTypeName = DCRouter.arguments(
+      'title',
+      defaultValue: EatMainType.all.name,
+    );
 
     initEatList();
   }
@@ -32,6 +39,11 @@ class EatListLogic extends GetxController {
 
   /// 跳转到随机点餐
   Future<void> handleRandomEatClick() async {
-    DCRouter.open(DCPages.eatRandom);
+    DCRouter.open(
+      DCPages.eatRandom,
+      arguments: {
+        'type': state.eatMainType.type,
+      },
+    );
   }
 }

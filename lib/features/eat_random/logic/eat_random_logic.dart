@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:get/get.dart';
-import 'package:ldc_tool/common/util/dc_log.dart';
+import 'package:ldc_tool/base/router/dc_router.dart';
 import 'package:ldc_tool/features/eat/header/eat_header.dart';
 import 'package:ldc_tool/features/eat/helper/eat_helper.dart';
 import 'package:ldc_tool/features/eat_random/header/eat_random_header.dart';
@@ -10,13 +10,22 @@ import 'package:ldc_tool/features/eat_random/state/eat_random_state.dart';
 class EatRandomLogic extends GetxController {
   final EatRandomState state = EatRandomState();
 
-  // @override
-  // void onInit() async {
-  //   super.onInit();
+  @override
+  void onInit() async {
+    super.onInit();
 
-  //   // 接收路由参数
-  //   // state.regionId = TWRouter.arguments("regionid") ?? "";
-  // }
+    // 接收路由参数
+    final type = DCRouter.arguments(
+      'type',
+      defaultValue: EatMainType.all.type,
+    );
+    if (type != null) {
+      state.mainType = EatMainType.values.firstWhere(
+        (element) => element.type == type,
+      );
+    }
+    update([EatRandomUpdateId.mainType]);
+  }
 
   /// 处理大类选择
   void handleMainTypeClick(EatMainType? mainType) {
@@ -51,7 +60,6 @@ class EatRandomLogic extends GetxController {
       return section.contains(selectedSection.type);
     }).toList();
 
-    DCLog.d('结果：-----sectionEatList: ${sectionEatList}');
     // 随机选择一个餐馆
     final randomRestaurant =
         sectionEatList.elementAt(Random().nextInt(sectionEatList.length));

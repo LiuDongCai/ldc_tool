@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
-import 'package:ldc_tool/features/eat/model/eat_model.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic.dart';
 import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
 import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
@@ -18,8 +18,6 @@ class EatListPageState extends State<EatListPage>
     with EatListLogicPutMixin<EatListPage> {
   EatListState get state => logic.state;
 
-  List<EatModel> get eatList => state.eatList;
-
   @override
   EatListLogic dcInitLogic() => EatListLogic();
 
@@ -31,37 +29,44 @@ class EatListPageState extends State<EatListPage>
 
   @override
   Widget dcBuildBody(BuildContext context) {
-    return Scaffold(
-      backgroundColor: DCColors.dcF2F4F7,
-      appBar: AppBar(
-        title: Text(
-          '餐馆',
-          style: TextStyle(
-            fontSize: 18.sp,
-            color: DCColors.dc333333,
-            height: 28 / 18,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              logic.handleRandomEatClick();
-            },
-            child: Text(
-              '帮我选择',
+    Widget resultWidget = GetBuilder<EatListLogic>(
+      tag: logicTag,
+      builder: (_) {
+        Widget resultWidget = Scaffold(
+          backgroundColor: DCColors.dcF2F4F7,
+          appBar: AppBar(
+            title: Text(
+              state.eatMainTypeName,
               style: TextStyle(
-                fontSize: 14.sp,
-                color: DCColors.dc42CC8F,
+                fontSize: 18.sp,
+                color: DCColors.dc333333,
+                height: 28 / 18,
               ),
             ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  logic.handleRandomEatClick();
+                },
+                child: Text(
+                  '帮我选择',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: DCColors.dc42CC8F,
+                  ),
+                ),
+              ),
+            ],
+            centerTitle: true,
+            backgroundColor: DCColors.dcFFFFFF,
+            elevation: 0,
+            scrolledUnderElevation: 0, //滚动时也保持无阴影（Flutter 3.x+）
           ),
-        ],
-        centerTitle: true,
-        backgroundColor: DCColors.dcFFFFFF,
-        elevation: 0,
-        scrolledUnderElevation: 0, //滚动时也保持无阴影（Flutter 3.x+）
-      ),
-      body: const EatListView(),
+          body: EatListView(),
+        );
+        return resultWidget;
+      },
     );
+    return resultWidget;
   }
 }
