@@ -68,10 +68,7 @@ enum FoodType {
   dessert(17),
 
   /// 饮品
-  drink(18),
-
-  /// 其他
-  other(20);
+  drink(18);
 
   final int type;
 
@@ -97,7 +94,6 @@ enum FoodType {
         FoodType.malangtang => '麻辣烫',
         FoodType.drink => '饮品',
         FoodType.dessert => '面包甜品',
-        FoodType.other => '其他',
       };
 }
 

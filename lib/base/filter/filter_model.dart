@@ -119,4 +119,3 @@ class PriceRange {
     this.unit = '万/坪',
   });
 }
-

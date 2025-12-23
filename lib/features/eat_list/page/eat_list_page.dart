@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic.dart';
 import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
+import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_filter.dart';
 import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
 import 'package:ldc_tool/features/eat_list/widgets/eat_list_view.dart';
 import 'package:ldc_tool/features/eat_list/widgets/eat_list_filter_bar.dart';
@@ -24,6 +25,8 @@ class EatListPageState extends State<EatListPage>
 
   @override
   void dispose() {
+    // 关闭筛选弹窗
+    logic.dismissFilterDropdown();
     state.scrollController.dispose();
     super.dispose();
   }
@@ -74,6 +77,15 @@ class EatListPageState extends State<EatListPage>
         );
         return resultWidget;
       },
+    );
+    resultWidget = PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+          logic.dismissFilterDropdown();
+        }
+      },
+      child: resultWidget,
     );
     return resultWidget;
   }

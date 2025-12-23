@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ldc_tool/base/filter/filter_overlay.dart';
 
 /// 筛选下拉弹窗工具类
-class FilterDropdown {
+class DCFilterDropdown {
   /// 当前打开的弹窗
   static OverlayEntry? _currentOverlayEntry;
   static Completer<dynamic>? _currentCompleter;
@@ -11,7 +11,7 @@ class FilterDropdown {
   /// 当前打开的筛选类型标识
   static String? _currentFilterType;
 
-  /// 关闭当前打开的弹窗
+  /// 关闭当前打开的弹窗（内部方法）
   static void _dismissCurrent() {
     if (_currentOverlayEntry != null) {
       _currentOverlayEntry!.remove();
@@ -24,22 +24,22 @@ class FilterDropdown {
     _currentFilterType = null;
   }
 
+  /// 当前是否有筛选弹窗正在打开
+  static bool get isFilterDropdownOpen => _currentOverlayEntry != null;
+
+  /// 关闭当前打开的筛选弹窗（公共方法，供外部调用）
+  static void dismiss() {
+    _dismissCurrent();
+  }
+
   /// 在指定位置下方显示筛选弹窗
   static Future<T?> showBelow<T>({
     required BuildContext context,
     required RenderBox anchorBox,
-    String? title,
     required Widget child,
-    bool showReset = true,
-    bool showConfirm = true,
-    String resetText = '重置',
-    String confirmText = '确定',
-    VoidCallback? onReset,
-    VoidCallback? onConfirm,
     List<FilterTabItem>? leftTabs,
     int? selectedTabIndex,
     ValueChanged<int>? onTabChanged,
-    double? maxHeight,
     String? filterType,
   }) {
     // 如果点击的是当前已打开的筛选类型，则关闭弹窗
@@ -60,27 +60,10 @@ class FilterDropdown {
     final anchorHeight = anchorBox.size.height;
 
     // 计算弹窗位置和大小
-    final availableHeight = size.height - position.dy - anchorHeight;
-    final popupHeight =
-        maxHeight ?? (availableHeight * 0.6).clamp(200.0, 600.0);
     final popupWidth = size.width;
 
-    T? result;
     final completer = Completer<T?>();
     _currentCompleter = completer;
-
-    void dismiss([T? value]) {
-      result = value;
-      if (_currentOverlayEntry != null) {
-        _currentOverlayEntry!.remove();
-        _currentOverlayEntry = null;
-      }
-      _currentFilterType = null;
-      if (!completer.isCompleted) {
-        completer.complete(value);
-        _currentCompleter = null;
-      }
-    }
 
     _currentOverlayEntry = OverlayEntry(
       builder: (context) {
@@ -99,9 +82,9 @@ class FilterDropdown {
               height: maskHeight,
               child: GestureDetector(
                 behavior: HitTestBehavior.translucent,
-                onTap: () => dismiss(null),
+                onTap: () => _dismissCurrent(),
                 child: Container(
-                  color: Colors.black.withOpacity(0.3),
+                  color: Colors.black.withValues(alpha: 0.3),
                 ),
               ),
             ),
@@ -110,23 +93,10 @@ class FilterDropdown {
               left: 0,
               top: popupTop,
               width: popupWidth,
-              height: popupHeight,
               child: Material(
                 color: Colors.transparent,
                 child: FilterOverlay(
-                  title: title,
                   child: child,
-                  showReset: showReset,
-                  showConfirm: showConfirm,
-                  resetText: resetText,
-                  confirmText: confirmText,
-                  customHeight: popupHeight,
-                  onReset: onReset,
-                  onConfirm: () {
-                    onConfirm?.call();
-                    dismiss(result);
-                  },
-                  onClose: () => dismiss(null),
                   leftTabs: leftTabs,
                   selectedTabIndex: selectedTabIndex,
                   onTabChanged: onTabChanged,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
 import 'package:ldc_tool/base/filter/filter_model.dart';
 import 'package:ldc_tool/base/filter/filter_overlay.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
@@ -22,30 +23,30 @@ class FilterThreeLevel extends StatefulWidget {
     this.leftTabs,
   });
 
-  /// 显示三级筛选弹窗
-  static Future<ThreeLevelFilterData?> show({
+  /// 在指定位置下方显示三级筛选弹窗
+  static Future<ThreeLevelFilterData?> showBelow({
     required BuildContext context,
+    required RenderBox anchorBox,
     required ThreeLevelFilterData data,
     List<FilterTabItem>? leftTabs,
-    String? title,
     ValueChanged<ThreeLevelFilterData>? onSelected,
+    String? filterType,
   }) async {
     ThreeLevelFilterData? result;
-    await FilterOverlay.show<ThreeLevelFilterData>(
+    await DCFilterDropdown.showBelow<ThreeLevelFilterData>(
       context: context,
-      title: title,
+      anchorBox: anchorBox,
+      filterType: filterType,
       leftTabs: leftTabs,
       selectedTabIndex: 0,
-      onReset: () {
-        result = data.copyWith(
-          selectedLevel1Id: null,
-          selectedLevel2Id: null,
-          selectedLevel3Id: null,
-        );
-      },
-      onConfirm: () {
-        Navigator.of(context).pop(result ?? data);
-      },
+      // onReset: () {
+      //   result = data.copyWith(
+      //     selectedLevel1Id: null,
+      //     selectedLevel2Id: null,
+      //     selectedLevel3Id: null,
+      //   );
+      // },
+      // onConfirm: () {},
       child: FilterThreeLevel(
         data: data,
         leftTabs: leftTabs,
@@ -167,7 +168,8 @@ class _FilterThreeLevelState extends State<FilterThreeLevel> {
     Widget resultWidget = SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: _data.level1.map((option) => _buildLevel1Option(option)).toList(),
+        children:
+            _data.level1.map((option) => _buildLevel1Option(option)).toList(),
       ),
     );
     return resultWidget;
@@ -391,4 +393,3 @@ class _FilterThreeLevelState extends State<FilterThreeLevel> {
     return resultWidget;
   }
 }
-

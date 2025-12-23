@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
 import 'package:ldc_tool/base/filter/filter_model.dart';
-import 'package:ldc_tool/base/filter/filter_overlay.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 
 /// 价格范围筛选组件
@@ -27,25 +27,25 @@ class FilterPriceRange extends StatefulWidget {
     this.onSelected,
   });
 
-  /// 显示价格范围筛选弹窗
-  static Future<PriceRange?> show({
+  /// 在指定位置下方显示价格范围筛选弹窗
+  static Future<PriceRange?> showBelow({
     required BuildContext context,
+    required RenderBox anchorBox,
     List<PriceRangeOption>? presetOptions,
     PriceRange? selectedRange,
     String unit = '万/坪',
-    String? title,
     ValueChanged<PriceRange?>? onSelected,
+    String? filterType,
   }) async {
     PriceRange? result;
-    await FilterOverlay.show(
+    await DCFilterDropdown.showBelow<PriceRange>(
       context: context,
-      title: title,
-      onReset: () {
-        result = null;
-      },
-      onConfirm: () {
-        Navigator.of(context).pop(result);
-      },
+      anchorBox: anchorBox,
+      filterType: filterType,
+      // onReset: () {
+      //   result = null;
+      // },
+      // onConfirm: () {},
       child: FilterPriceRange(
         presetOptions: presetOptions,
         selectedRange: selectedRange,
@@ -106,7 +106,9 @@ class _FilterPriceRangeState extends State<FilterPriceRange> {
     Widget resultWidget = Wrap(
       spacing: 12.w,
       runSpacing: 12.w,
-      children: widget.presetOptions!.map((option) => _buildPresetOption(option)).toList(),
+      children: widget.presetOptions!
+          .map((option) => _buildPresetOption(option))
+          .toList(),
     );
     return resultWidget;
   }
@@ -325,4 +327,3 @@ class PriceRangeOption {
     required this.range,
   });
 }
-

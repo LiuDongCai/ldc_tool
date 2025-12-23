@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:ldc_tool/base/router/dc_router.dart';
 import 'package:ldc_tool/features/common/dc_router_config.dart';
 import 'package:ldc_tool/features/eat/header/eat_header.dart';
+import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_filter.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_list.dart';
 import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
 
@@ -24,6 +25,7 @@ class EatListLogic extends GetxController {
 
   /// 跳转到随机点餐
   Future<void> handleRandomEatClick() async {
+    dismissFilterDropdown();
     DCRouter.open(
       DCPages.eatRandom,
       arguments: {

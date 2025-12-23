@@ -1,41 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:ldc_tool/base/filter/filter.dart';
-import 'package:ldc_tool/base/router/dc_router.dart';
-import 'package:ldc_tool/features/common/dc_router_config.dart';
+import 'package:ldc_tool/base/filter/dc_filter.dart';
+import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
 import 'package:ldc_tool/features/eat/header/eat_header.dart';
-import 'package:ldc_tool/features/eat/model/eat_model.dart';
 import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_list.dart';
 
 extension EatListLogicFilter on EatListLogic {
-  /// 应用筛选和排序
-  void applyFilters() {
-    List<EatModel> filteredList = List.from(state.eatList);
-
-   
-    // 排序
-    switch (state.sortType) {
-      case EatListFilterSortType.scoreHighToLow:
-        filteredList.sort((a, b) {
-          final scoreA = a.score ?? 0.0;
-          final scoreB = b.score ?? 0.0;
-          return scoreB.compareTo(scoreA);
-        });
-        break;
-      case EatListFilterSortType.scoreLowToHigh:
-        filteredList.sort((a, b) {
-          final scoreA = a.score ?? 0.0;
-          final scoreB = b.score ?? 0.0;
-          return scoreA.compareTo(scoreB);
-        });
-        break;
-      case EatListFilterSortType.defaultSort:
-        break;
+  /// 关闭当前打开的筛选弹窗
+  void dismissFilterDropdown() {
+    if (DCFilterDropdown.isFilterDropdownOpen) {
+      DCFilterDropdown.dismiss();
     }
-
-    state.eatList = filteredList;
-    update();
   }
 
   /// 处理品类筛选点击
@@ -43,6 +19,7 @@ extension EatListLogicFilter on EatListLogic {
     BuildContext context,
     RenderBox? anchorBox,
   ) async {
+    if (anchorBox == null) return;
     // 品类数据
     final mainTypeDataList = EatMainType.values.map((mainType) {
       return FilterOption(
@@ -52,30 +29,21 @@ extension EatListLogicFilter on EatListLogic {
       );
     }).toList();
 
-    final String? selectedId;
-    if (anchorBox != null) {
-      selectedId = await FilterSingleSelect.showBelow(
-        context: context,
-        anchorBox: anchorBox,
-        options: mainTypeDataList,
-        showUnlimited: false, //不显示不限
-        selectedId: '${state.selectedMainType}',
-        title: '品类筛选',
-        filterType: EatListFilterType.mainType.type,
-      );
-    } else {
-      selectedId = await FilterSingleSelect.show(
-        context: context,
-        options: mainTypeDataList,
-        showUnlimited: false, //不显示不限
-        selectedId: '${state.selectedMainType}',
-        title: '品类筛选',
-      );
-    }
-    // 如果是null，说明没有选择，不进行下一步操作
-    if (selectedId == null) return;
+    final List<String>? selectedIds = await DCFilterNormalSelectView.showBelow(
+      context: context,
+      anchorBox: anchorBox,
+      options: mainTypeDataList,
+      showUnlimited: false, //不显示不限
+      showReset: false,
+      selectedIds: [state.selectedMainType.toString()],
+      filterType: EatListFilterType.mainType.type,
+    );
 
-    final newMainType = int.tryParse(selectedId) ?? state.selectedMainType;
+    // 如果是null，说明没有选择，不进行下一步操作
+    if (selectedIds == null) return;
+
+    final newMainType =
+        int.tryParse(selectedIds.firstOrNull ?? '') ?? state.selectedMainType;
     // 如果新选择的品类和当前选择的品类相同，不进行下一步操作
     if (newMainType == state.selectedMainType) return;
 
@@ -91,6 +59,8 @@ extension EatListLogicFilter on EatListLogic {
     BuildContext context,
     RenderBox? anchorBox,
   ) async {
+    if (anchorBox == null) return;
+    // 区域数据
     final sectionDataList = SectionType.values.map((type) {
       return FilterOption(
         id: type.type.toString(),
@@ -99,28 +69,19 @@ extension EatListLogicFilter on EatListLogic {
       );
     }).toList();
 
-    final String? selectedId;
-    if (anchorBox != null) {
-      selectedId = await FilterSingleSelect.showBelow(
-        context: context,
-        anchorBox: anchorBox,
-        options: sectionDataList,
-        selectedId: '${state.selectedSectionId}',
-        title: '区域筛选',
-        filterType: EatListFilterType.section.type,
-      );
-    } else {
-      selectedId = await FilterSingleSelect.show(
-        context: context,
-        options: sectionDataList,
-        selectedId: '${state.selectedSectionId}',
-        title: '区域筛选',
-      );
-    }
-    // 如果是null，说明没有选择，不进行下一步操作
-    if (selectedId == null) return;
+    final List<String>? selectedIds = await DCFilterNormalSelectView.showBelow(
+      context: context,
+      anchorBox: anchorBox,
+      options: sectionDataList,
+      selectedIds: [state.selectedSectionId.toString()],
+      filterType: EatListFilterType.section.type,
+    );
 
-    final newSectionId = int.tryParse(selectedId) ?? state.selectedSectionId;
+    // 如果是null，说明没有选择，不进行下一步操作
+    if (selectedIds == null) return;
+
+    final newSectionId =
+        int.tryParse(selectedIds.firstOrNull ?? '') ?? state.selectedSectionId;
     // 如果新选择的品类和当前选择的品类相同，不进行下一步操作
     if (newSectionId == state.selectedSectionId) return;
 
@@ -136,7 +97,9 @@ extension EatListLogicFilter on EatListLogic {
     BuildContext context,
     RenderBox? anchorBox,
   ) async {
-    final options = FoodType.values.map((type) {
+    if (anchorBox == null) return;
+    // 菜系数据
+    final foodTypeDataList = FoodType.values.map((type) {
       return FilterOption(
         id: type.type.toString(),
         name: type.name,
@@ -144,37 +107,30 @@ extension EatListLogicFilter on EatListLogic {
       );
     }).toList();
 
-    final groups = [
-      FilterGroup(
-        title: '菜系',
-        options: options,
-        isMultiSelect: true,
-      ),
-    ];
-    final List<String> selectedValues;
-    if (anchorBox != null) {
-      selectedValues = await FilterMultiSelect.showBelow(
-        context: context,
-        anchorBox: anchorBox,
-        groups: groups,
-        selectedIds: state.selectedFoodTypeIds,
-        title: '菜系筛选',
-        filterType: EatListFilterType.foodType.type,
-      );
-    } else {
-      selectedValues = await FilterMultiSelect.show(
-        context: context,
-        groups: groups,
-        selectedIds: state.selectedFoodTypeIds,
-        title: '菜系筛选',
-      );
-    }
+    final List<String>? selectedValues =
+        await DCFilterNormalSelectView.showBelow(
+      context: context,
+      anchorBox: anchorBox,
+      options: foodTypeDataList,
+      selectedIds: state.selectedFoodTypeIds,
+      isMultiSelect: true,
+      rowCount: 3,
+      filterType: EatListFilterType.foodType.type,
+    );
+
+    if (selectedValues == null) return;
+
     // 如果元素一样，不进行下一步操作
     if (state.selectedFoodTypeIds.length == selectedValues.length &&
         state.selectedFoodTypeIds.every((id) => selectedValues.contains(id))) {
       return;
     }
-    state.selectedFoodTypeIds = selectedValues;
+    // 如果是不限，则清空
+    if (selectedValues.contains('0')) {
+      state.selectedFoodTypeIds = [];
+    } else {
+      state.selectedFoodTypeIds = selectedValues;
+    }
 
     // 重新获取餐馆列表
     await fetchEatList();
@@ -186,6 +142,8 @@ extension EatListLogicFilter on EatListLogic {
     BuildContext context,
     RenderBox? anchorBox,
   ) async {
+    if (anchorBox == null) return;
+    // 返现平台数据
     final cashbackOptions = CashbackPlatform.values.map((platform) {
       return FilterOption(
         id: platform.platform.toString(),
@@ -203,28 +161,16 @@ extension EatListLogicFilter on EatListLogic {
       ),
     ];
 
-    final Map<String, List<String>> selectedValues;
-    if (anchorBox != null) {
-      selectedValues = await FilterMore.showBelow(
-        context: context,
-        anchorBox: anchorBox,
-        groups: groups,
-        selectedValues: {
-          EatListMoreFilterType.cashback.type: state.selectedCashbackIds,
-        },
-        title: '更多筛选',
-        filterType: EatListFilterType.more.type,
-      );
-    } else {
-      selectedValues = await FilterMore.show(
-        context: context,
-        groups: groups,
-        selectedValues: {
-          EatListMoreFilterType.cashback.type: state.selectedCashbackIds,
-        },
-        title: '更多筛选',
-      );
-    }
+    final Map<String, List<String>> selectedValues =
+        await DCFilterMoreSelectView.showBelow(
+      context: context,
+      anchorBox: anchorBox,
+      groups: groups,
+      selectedValues: {
+        EatListMoreFilterType.cashback.type: state.selectedCashbackIds,
+      },
+      filterType: EatListFilterType.more.type,
+    );
 
     // 数据是否改变
     bool isDataChanged = false;
@@ -252,6 +198,8 @@ extension EatListLogicFilter on EatListLogic {
     BuildContext context,
     RenderBox? anchorBox,
   ) async {
+    if (anchorBox == null) return;
+    // 排序数据
     final options = [
       FilterOption(
         id: EatListFilterSortType.defaultSort.name,
@@ -270,26 +218,15 @@ extension EatListLogicFilter on EatListLogic {
       ),
     ];
 
-    final String? selectedSortType;
-    if (anchorBox != null) {
-      selectedSortType = await FilterSingleSelect.showBelow(
-        context: context,
-        anchorBox: anchorBox,
-        options: options,
-        selectedId: state.sortType.name,
-        title: '排序',
-        showUnlimited: false,
-        filterType: EatListFilterType.sort.type,
-      );
-    } else {
-      selectedSortType = await FilterSingleSelect.show(
-        context: context,
-        options: options,
-        selectedId: state.sortType.name,
-        title: '排序',
-        showUnlimited: false,
-      );
-    }
+    final String? selectedSortType =
+        await DCFilterSingleListSelectView.showBelow(
+      context: context,
+      anchorBox: anchorBox,
+      options: options,
+      selectedId: state.sortType.name,
+      showUnlimited: false,
+      filterType: EatListFilterType.sort.type,
+    );
 
     // 如果是null，说明没有选择，不进行下一步操作
     if (selectedSortType == null) return;
@@ -305,15 +242,5 @@ extension EatListLogicFilter on EatListLogic {
     // 重新获取餐馆列表
     await fetchEatList();
     scrollToTop();
-  }
-
-  /// 跳转到随机点餐
-  Future<void> handleRandomEatClick() async {
-    DCRouter.open(
-      DCPages.eatRandom,
-      arguments: {
-        'main_type': state.selectedMainType,
-      },
-    );
   }
 }

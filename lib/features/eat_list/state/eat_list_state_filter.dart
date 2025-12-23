@@ -34,6 +34,7 @@ mixin EatListStateFilter on EatListCommonState {
   /// 选中的菜系名称
   String get selectedFoodTypeName {
     if (selectedFoodTypeIds.isEmpty) return '菜系';
+    if (selectedFoodTypeIds.contains('0')) return '菜系';
     return selectedFoodTypeIds
         .map((id) => FoodType.values
             .firstWhere((element) => element.type == int.tryParse(id))
