@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ldc_tool/base/filter/dc_filter.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic.dart';
@@ -25,6 +26,26 @@ class _EatListFilterBarState extends State<EatListFilterBar>
   final GlobalKey _moreKey = GlobalKey();
   final GlobalKey _sortKey = GlobalKey();
 
+  /// 弹窗状态变化回调
+  void _onFilterDropdownStateChanged() {
+    // 更新筛选栏UI
+    logic.update([EatListUpdateId.filterBar]);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // 监听弹窗状态变化
+    DCFilterDropdown.addStateChangedListener(_onFilterDropdownStateChanged);
+  }
+
+  @override
+  void dispose() {
+    // 移除监听
+    DCFilterDropdown.removeStateChangedListener(_onFilterDropdownStateChanged);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<EatListLogic>(
@@ -40,46 +61,56 @@ class _EatListFilterBarState extends State<EatListFilterBar>
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildFilterItem(
+              DCFilterTabItem(
                 key: _categoryKey,
                 title: state.selectedMainTypeName,
                 isSelected: true,
+                isOpen: DCFilterDropdown.currentFilterType ==
+                    EatListFilterType.mainType.type,
                 onTap: () => logic.handleCategoryFilterClick(
                   context,
                   _categoryKey.currentContext?.findRenderObject() as RenderBox?,
                 ),
               ),
-              _buildFilterItem(
+              DCFilterTabItem(
                 key: _sectionKey,
                 title: state.selectedSectionName,
                 isSelected: state.selectedSectionId != 0,
+                isOpen: DCFilterDropdown.currentFilterType ==
+                    EatListFilterType.section.type,
                 onTap: () => logic.handleSectionFilterClick(
                   context,
                   _sectionKey.currentContext?.findRenderObject() as RenderBox?,
                 ),
               ),
-              _buildFilterItem(
+              DCFilterTabItem(
                 key: _foodTypeKey,
                 title: state.selectedFoodTypeName,
                 isSelected: state.selectedFoodTypeIds.isNotEmpty,
+                isOpen: DCFilterDropdown.currentFilterType ==
+                    EatListFilterType.foodType.type,
                 onTap: () => logic.handleFoodTypeFilterClick(
                   context,
                   _foodTypeKey.currentContext?.findRenderObject() as RenderBox?,
                 ),
               ),
-              _buildFilterItem(
+              DCFilterTabItem(
                 key: _moreKey,
                 title: '更多',
                 isSelected: state.selectedCashbackIds.isNotEmpty,
+                isOpen: DCFilterDropdown.currentFilterType ==
+                    EatListFilterType.more.type,
                 onTap: () => logic.handleMoreFilterClick(
                   context,
                   _moreKey.currentContext?.findRenderObject() as RenderBox?,
                 ),
               ),
-              _buildFilterItem(
+              DCFilterTabItem(
                 key: _sortKey,
                 title: _getSortTitle(),
                 isSelected: state.sortType != EatListFilterSortType.defaultSort,
+                isOpen: DCFilterDropdown.currentFilterType ==
+                    EatListFilterType.sort.type,
                 onTap: () => logic.handleSortFilterClick(
                   context,
                   _sortKey.currentContext?.findRenderObject() as RenderBox?,
@@ -91,61 +122,6 @@ class _EatListFilterBarState extends State<EatListFilterBar>
         return resultWidget;
       },
     );
-  }
-
-  /// 构建筛选项
-  Widget _buildFilterItem({
-    required Key key,
-    required String title,
-    required bool isSelected,
-    required VoidCallback onTap,
-  }) {
-    Widget resultWidget = GestureDetector(
-      key: key,
-      behavior: HitTestBehavior.translucent,
-      onTap: onTap,
-      child: Container(
-        alignment: Alignment.center,
-        width: 60.w,
-        padding: EdgeInsets.symmetric(
-          vertical: 6.w,
-        ),
-        decoration: BoxDecoration(
-          color: isSelected
-              ? DCColors.dc42CC8F.withValues(alpha: 0.1)
-              : DCColors.dcF5F5F5,
-          borderRadius: BorderRadius.circular(6.w),
-          border: Border.all(
-            color: isSelected ? DCColors.dc42CC8F : DCColors.dcF5F5F5,
-            width: 1.w,
-          ),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  color: isSelected ? DCColors.dc42CC8F : DCColors.dc666666,
-                  fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
-                ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            SizedBox(width: 2.w),
-            Icon(
-              isSelected ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-              size: 16.w,
-              color: isSelected ? DCColors.dc42CC8F : DCColors.dc999999,
-            ),
-          ],
-        ),
-      ),
-    );
-    return resultWidget;
   }
 
   /// 获取排序标题

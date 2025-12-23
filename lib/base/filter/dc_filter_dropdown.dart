@@ -11,6 +11,26 @@ class DCFilterDropdown {
   /// 当前打开的筛选类型标识
   static String? _currentFilterType;
 
+  /// 弹窗状态变化回调列表
+  static final List<VoidCallback> _onStateChangedCallbacks = [];
+
+  /// 添加弹窗状态变化监听
+  static void addStateChangedListener(VoidCallback callback) {
+    _onStateChangedCallbacks.add(callback);
+  }
+
+  /// 移除弹窗状态变化监听
+  static void removeStateChangedListener(VoidCallback callback) {
+    _onStateChangedCallbacks.remove(callback);
+  }
+
+  /// 通知状态变化
+  static void _notifyStateChanged() {
+    for (var callback in _onStateChangedCallbacks) {
+      callback();
+    }
+  }
+
   /// 关闭当前打开的弹窗（内部方法）
   static void _dismissCurrent() {
     if (_currentOverlayEntry != null) {
@@ -22,10 +42,14 @@ class DCFilterDropdown {
       _currentCompleter = null;
     }
     _currentFilterType = null;
+    _notifyStateChanged();
   }
 
   /// 当前是否有筛选弹窗正在打开
   static bool get isFilterDropdownOpen => _currentOverlayEntry != null;
+
+  /// 获取当前打开的筛选类型
+  static String? get currentFilterType => _currentFilterType;
 
   /// 关闭当前打开的筛选弹窗（公共方法，供外部调用）
   static void dismiss() {
@@ -53,6 +77,7 @@ class DCFilterDropdown {
 
     // 设置当前筛选类型
     _currentFilterType = filterType;
+    _notifyStateChanged();
 
     final overlay = Overlay.of(context);
     final size = MediaQuery.of(context).size;
