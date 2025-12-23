@@ -140,7 +140,7 @@ class _EatListItemViewState extends State<EatListItemView> {
 
   /// 价格
   Widget _buildPrice() {
-    return Text(
+    Widget resultWidget = Text(
       model.price ?? '',
       style: TextStyle(
         fontSize: 14.sp,
@@ -148,6 +148,23 @@ class _EatListItemViewState extends State<EatListItemView> {
         height: 22 / 14,
       ),
     );
+    resultWidget = Row(
+      children: [
+        resultWidget,
+        SizedBox(
+          width: 16.w,
+        ),
+        Text(
+          '${model.score}',
+          style: TextStyle(
+            fontSize: 14.sp,
+            color: DCColors.dc42CC8F,
+            height: 22 / 14,
+          ),
+        ),
+      ],
+    );
+    return resultWidget;
   }
 
   /// 返现

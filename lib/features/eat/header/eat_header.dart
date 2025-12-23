@@ -140,21 +140,24 @@ enum SectionType {
 
   /// 获取地区名称
   String get name => switch (this) {
-        SectionType.longhua => '龙华区',
-        SectionType.futian => '福田区',
-        SectionType.nanshan => '南山区',
-        SectionType.luohu => '罗湖区',
-        SectionType.baoan => '宝安区',
-        SectionType.longgang => '龙岗区',
-        SectionType.yantian => '盐田区',
-        SectionType.pingshan => '坪山区',
-        SectionType.guangming => '光明区',
-        SectionType.dapeng => '大鹏新区',
+        SectionType.longhua => '龙华',
+        SectionType.futian => '福田',
+        SectionType.nanshan => '南山',
+        SectionType.luohu => '罗湖',
+        SectionType.baoan => '宝安',
+        SectionType.longgang => '龙岗',
+        SectionType.yantian => '盐田',
+        SectionType.pingshan => '坪山',
+        SectionType.guangming => '光明',
+        SectionType.dapeng => '大鹏',
       };
 }
 
 /// 返现平台
 enum CashbackPlatform {
+  /// 无返现
+  noCashBack(-1),
+
   /// 灰太狼
   huitailang(1),
 
@@ -167,6 +170,7 @@ enum CashbackPlatform {
 
   /// 获取返现平台名称
   String get name => switch (this) {
+        CashbackPlatform.noCashBack => '无返现',
         CashbackPlatform.huitailang => '灰太狼',
         CashbackPlatform.waimai => '歪麦',
       };

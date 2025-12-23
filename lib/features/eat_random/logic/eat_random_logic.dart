@@ -16,7 +16,7 @@ class EatRandomLogic extends GetxController {
 
     // 接收路由参数
     final type = DCRouter.arguments(
-      'type',
+      'main_type',
       defaultValue: EatMainType.all.type,
     );
     if (type != null) {

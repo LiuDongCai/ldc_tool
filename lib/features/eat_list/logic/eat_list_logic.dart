@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:ldc_tool/base/router/dc_router.dart';
 import 'package:ldc_tool/features/common/dc_router_config.dart';
 import 'package:ldc_tool/features/eat/header/eat_header.dart';
-import 'package:ldc_tool/features/eat/helper/eat_helper.dart';
+import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_list.dart';
 import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
 
 class EatListLogic extends GetxController {
@@ -13,28 +13,13 @@ class EatListLogic extends GetxController {
     super.onInit();
 
     // 接收路由参数
-    final type = DCRouter.arguments(
-      'type',
+    state.selectedMainType = DCRouter.arguments(
+      'main_type',
       defaultValue: EatMainType.all.type,
     );
-    if (type != null) {
-      state.eatMainType = EatMainType.values.firstWhere(
-        (element) => element.type == type,
-      );
-    }
-    state.eatMainTypeName = DCRouter.arguments(
-      'title',
-      defaultValue: EatMainType.all.name,
-    );
 
-    initEatList();
-  }
-
-  /// 初始化餐馆列表
-  Future<void> initEatList() async {
-    final eatList = await EatHelper.getEatList(mainType: state.eatMainType);
-    state.eatList = eatList;
-    update();
+    // 获取餐馆列表
+    fetchEatList();
   }
 
   /// 跳转到随机点餐
@@ -42,7 +27,7 @@ class EatListLogic extends GetxController {
     DCRouter.open(
       DCPages.eatRandom,
       arguments: {
-        'type': state.eatMainType.type,
+        'main_type': state.selectedMainType,
       },
     );
   }

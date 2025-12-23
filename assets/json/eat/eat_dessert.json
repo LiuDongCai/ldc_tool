@@ -10,6 +10,9 @@
         "bad_food": "",
         "price": "20~40元",
         "score": 4.6,
+        "cashback": [
+            -1
+        ],
         "url": "",
         "remark": ""
     }

@@ -1,8 +1,10 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/features/eat/model/eat_model.dart';
 import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
+import 'package:ldc_tool/features/eat_list/logic/eat_list_logic.dart';
 import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
 import 'package:ldc_tool/features/eat_list/widgets/eat_list_item_view.dart';
 
@@ -23,22 +25,29 @@ class _EatListViewState extends State<EatListView>
 
   @override
   Widget build(BuildContext context) {
-    if (eatList.isEmpty) {
-      return const Center(child: Text('暂无数据'));
-    }
-    // 列表
-    Widget resultWidget = ListView.separated(
-      cacheExtent: double.maxFinite,
-      controller: state.scrollController,
-      scrollDirection: Axis.vertical,
-      padding: EdgeInsets.all(10.w),
-      itemCount: eatList.length,
-      itemBuilder: (BuildContext context, int index) {
-        var model = eatList[index];
-        return _buildItemWidget(model: model);
-      },
-      separatorBuilder: (BuildContext context, int index) {
-        return SizedBox(height: 10.w);
+    Widget resultWidget = GetBuilder<EatListLogic>(
+      tag: logicTag,
+      id: EatListUpdateId.eatList,
+      builder: (_) {
+        if (eatList.isEmpty) {
+          return const Center(child: Text('暂无数据'));
+        }
+        // 列表
+        Widget resultWidget = ListView.separated(
+          cacheExtent: double.maxFinite,
+          controller: state.scrollController,
+          scrollDirection: Axis.vertical,
+          padding: EdgeInsets.all(10.w),
+          itemCount: eatList.length,
+          itemBuilder: (BuildContext context, int index) {
+            var model = eatList[index];
+            return _buildItemWidget(model: model);
+          },
+          separatorBuilder: (BuildContext context, int index) {
+            return SizedBox(height: 10.w);
+          },
+        );
+        return resultWidget;
       },
     );
     return resultWidget;

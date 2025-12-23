@@ -6,6 +6,7 @@ import 'package:ldc_tool/features/eat_list/logic/eat_list_logic.dart';
 import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
 import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
 import 'package:ldc_tool/features/eat_list/widgets/eat_list_view.dart';
+import 'package:ldc_tool/features/eat_list/widgets/eat_list_filter_bar.dart';
 
 class EatListPage extends StatefulWidget {
   const EatListPage({super.key});
@@ -36,7 +37,7 @@ class EatListPageState extends State<EatListPage>
           backgroundColor: DCColors.dcF2F4F7,
           appBar: AppBar(
             title: Text(
-              state.eatMainTypeName,
+              '餐馆',
               style: TextStyle(
                 fontSize: 18.sp,
                 color: DCColors.dc333333,
@@ -62,7 +63,14 @@ class EatListPageState extends State<EatListPage>
             elevation: 0,
             scrolledUnderElevation: 0, //滚动时也保持无阴影（Flutter 3.x+）
           ),
-          body: EatListView(),
+          body: Column(
+            children: [
+              const EatListFilterBar(),
+              Expanded(
+                child: EatListView(),
+              ),
+            ],
+          ),
         );
         return resultWidget;
       },

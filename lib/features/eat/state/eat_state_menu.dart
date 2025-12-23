@@ -16,8 +16,7 @@ mixin EatStateMenu on EatCommonState {
       icon: Assets.image.eat.eatRestaurant.path,
       page: DCPages.eatList,
       params: {
-        'type': EatMainType.all.type,
-        'title': EatMainType.all.name,
+        'main_type': EatMainType.all.type,
       },
     ),
     DCMenuModel(
@@ -25,8 +24,7 @@ mixin EatStateMenu on EatCommonState {
       icon: Assets.image.eat.eatMain.path,
       page: DCPages.eatList,
       params: {
-        'type': EatMainType.main.type,
-        'title': EatMainType.main.name,
+        'main_type': EatMainType.main.type,
       },
     ),
     DCMenuModel(
@@ -34,8 +32,7 @@ mixin EatStateMenu on EatCommonState {
       icon: Assets.image.eat.eatDrink.path,
       page: DCPages.eatList,
       params: {
-        'type': EatMainType.drink.type,
-        'title': EatMainType.drink.name,
+        'main_type': EatMainType.drink.type,
       },
     ),
     DCMenuModel(
@@ -43,8 +40,7 @@ mixin EatStateMenu on EatCommonState {
       icon: Assets.image.eat.eatDessert.path,
       page: DCPages.eatList,
       params: {
-        'type': EatMainType.dessert.type,
-        'title': EatMainType.dessert.name,
+        'main_type': EatMainType.dessert.type,
       },
     ),
   ];
