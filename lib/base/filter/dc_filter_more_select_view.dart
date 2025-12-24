@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/base/filter/dc_filter_bottom_buttons.dart';
 import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
-import 'package:ldc_tool/base/filter/filter_model.dart';
+import 'package:ldc_tool/base/filter/model/dc_filter_model.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 
 /// 更多筛选组件（组合多个筛选条件）
 class DCFilterMoreSelectView extends StatefulWidget {
   /// 筛选组列表
-  final List<FilterGroup> groups;
+  final List<DCFilterGroup> groups;
 
   /// 确定回调
   final ValueChanged<Map<String, List<String>>>? onConfirm;
@@ -23,7 +23,7 @@ class DCFilterMoreSelectView extends StatefulWidget {
   static Future<Map<String, List<String>>> showBelow({
     required BuildContext context,
     required RenderBox anchorBox,
-    required List<FilterGroup> groups,
+    required List<DCFilterGroup> groups,
     Map<String, List<String>>? selectedValues,
     String? filterType,
   }) async {
@@ -113,7 +113,7 @@ class _DCFilterMoreSelectViewState extends State<DCFilterMoreSelectView> {
   }
 
   /// 构建筛选组
-  Widget _buildGroup(FilterGroup group) {
+  Widget _buildGroup(DCFilterGroup group) {
     Widget resultWidget = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -144,7 +144,7 @@ class _DCFilterMoreSelectViewState extends State<DCFilterMoreSelectView> {
   }
 
   /// 构建组选项
-  Widget _buildGroupOptions(FilterGroup group) {
+  Widget _buildGroupOptions(DCFilterGroup group) {
     Widget resultWidget = GridView.builder(
       padding: EdgeInsets.zero,
       shrinkWrap: true,
@@ -168,7 +168,7 @@ class _DCFilterMoreSelectViewState extends State<DCFilterMoreSelectView> {
   }
 
   /// 构建选项
-  Widget _buildOption(FilterGroup group, FilterOption option) {
+  Widget _buildOption(DCFilterGroup group, DCFilterOption option) {
     final selectedSet = _tempSelectedIds[group.title] ?? <String>{};
     final isSelected = selectedSet.contains(option.id);
     Widget resultWidget = Text(

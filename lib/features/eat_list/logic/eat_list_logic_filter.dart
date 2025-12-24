@@ -21,7 +21,7 @@ extension EatListLogicFilter on EatListLogic {
     if (anchorBox == null) return;
     // 品类数据
     final mainTypeDataList = EatMainType.values.map((mainType) {
-      return FilterOption(
+      return DCFilterOption(
         id: mainType.type.toString(),
         name: mainType.name,
         isSelected: state.selectedMainType == mainType.type,
@@ -61,7 +61,7 @@ extension EatListLogicFilter on EatListLogic {
     if (anchorBox == null) return;
     // 区域数据
     final sectionDataList = SectionType.values.map((type) {
-      return FilterOption(
+      return DCFilterOption(
         id: type.type.toString(),
         name: type.name,
         isSelected: state.selectedSectionId == type.type,
@@ -99,7 +99,7 @@ extension EatListLogicFilter on EatListLogic {
     if (anchorBox == null) return;
     // 菜系数据
     final foodTypeDataList = FoodType.values.map((type) {
-      return FilterOption(
+      return DCFilterOption(
         id: type.type.toString(),
         name: type.name,
         isSelected: state.selectedFoodTypeIds.contains(type.type.toString()),
@@ -144,7 +144,7 @@ extension EatListLogicFilter on EatListLogic {
     if (anchorBox == null) return;
     // 返现平台数据
     final cashbackOptions = CashbackPlatform.values.map((platform) {
-      return FilterOption(
+      return DCFilterOption(
         id: platform.platform.toString(),
         name: platform.name,
         isSelected:
@@ -153,7 +153,7 @@ extension EatListLogicFilter on EatListLogic {
     }).toList();
 
     final groups = [
-      FilterGroup(
+      DCFilterGroup(
         title: EatListMoreFilterType.cashback.type,
         options: cashbackOptions,
         isMultiSelect: true,
@@ -200,17 +200,17 @@ extension EatListLogicFilter on EatListLogic {
     if (anchorBox == null) return;
     // 排序数据
     final options = [
-      FilterOption(
+      DCFilterOption(
         id: EatListFilterSortType.defaultSort.name,
         name: '默认排序',
         isSelected: state.sortType == EatListFilterSortType.defaultSort,
       ),
-      FilterOption(
+      DCFilterOption(
         id: EatListFilterSortType.scoreHighToLow.name,
         name: '评分从高到低',
         isSelected: state.sortType == EatListFilterSortType.scoreHighToLow,
       ),
-      FilterOption(
+      DCFilterOption(
         id: EatListFilterSortType.scoreLowToHigh.name,
         name: '评分从低到高',
         isSelected: state.sortType == EatListFilterSortType.scoreLowToHigh,
@@ -242,4 +242,38 @@ extension EatListLogicFilter on EatListLogic {
     await fetchEatList();
     scrollToTop();
   }
+
+  // /// 处理价格筛选点击
+  // Future<void> handlePriceFilterClick(
+  //   BuildContext context,
+  //   RenderBox? anchorBox,
+  // ) async {
+  //   if (anchorBox == null) return;
+
+  //   final DCPriceRangeOption? selectedValues =
+  //       await DCFilterPriceRangeView.showBelow(
+  //     context: context,
+  //     anchorBox: anchorBox,
+  //     options: state.priceDataList,
+  //     selectedRange: state.selectedPriceRange,
+  //     rowCount: 3,
+  //     filterType: EatListFilterType.priceType.type,
+  //   );
+
+  //   if (selectedValues == null) return;
+
+  //   // 如果元素一样，不进行下一步操作
+  //   if (state.selectedPriceRange?.range.minPrice ==
+  //           selectedValues.range.minPrice &&
+  //       state.selectedPriceRange?.range.maxPrice ==
+  //           selectedValues.range.maxPrice) {
+  //     return;
+  //   }
+
+  //   state.selectedPriceRange = selectedValues;
+
+  //   // 重新获取餐馆列表
+  //   await fetchEatList();
+  //   scrollToTop();
+  // }
 }

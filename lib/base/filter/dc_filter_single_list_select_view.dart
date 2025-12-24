@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
-import 'package:ldc_tool/base/filter/filter_model.dart';
+import 'package:ldc_tool/base/filter/model/dc_filter_model.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 
 /// 单列表筛选组件
 class DCFilterSingleListSelectView extends StatefulWidget {
   /// 选项列表
-  final List<FilterOption> options;
+  final List<DCFilterOption> options;
 
   /// 当前选中的ID
   final String? selectedId;
@@ -34,7 +34,7 @@ class DCFilterSingleListSelectView extends StatefulWidget {
   static Future<String?> showBelow({
     required BuildContext context,
     required RenderBox anchorBox,
-    required List<FilterOption> options,
+    required List<DCFilterOption> options,
     String? selectedId,
     bool showUnlimited = false,
     String unlimitedText = '不限',
@@ -71,11 +71,11 @@ class _DCFilterSingleListSelectViewState
   String? _selectedId;
 
   /// 展示数据
-  List<FilterOption> get optionList {
+  List<DCFilterOption> get optionList {
     if (widget.showUnlimited) {
       // 增加不限选项
       return [
-        FilterOption(
+        DCFilterOption(
           id: '0',
           name: widget.unlimitedText,
         ),
@@ -144,7 +144,7 @@ class _DCFilterSingleListSelectViewState
   }
 
   /// 构建选项
-  Widget _buildOption(FilterOption option) {
+  Widget _buildOption(DCFilterOption option) {
     final isSelected = _selectedId == option.id;
     Widget resultWidget = Text(
       option.name,

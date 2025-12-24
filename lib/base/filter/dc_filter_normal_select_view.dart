@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/base/filter/dc_filter_bottom_buttons.dart';
 import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
-import 'package:ldc_tool/base/filter/filter_model.dart';
+import 'package:ldc_tool/base/filter/model/dc_filter_model.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 
 /// 通用筛选组件（单选、多选等）
 class DCFilterNormalSelectView extends StatefulWidget {
   /// 选项列表
-  final List<FilterOption> options;
+  final List<DCFilterOption> options;
 
   /// 当前选中的ID集合
   final List<String>? selectedIds;
@@ -59,7 +59,7 @@ class DCFilterNormalSelectView extends StatefulWidget {
   static Future<List<String>?> showBelow({
     required BuildContext context,
     required RenderBox anchorBox,
-    required List<FilterOption> options,
+    required List<DCFilterOption> options,
     List<String>? selectedIds,
     bool showUnlimited = true,
     String unlimitedText = '不限',
@@ -110,11 +110,11 @@ class _DCFilterNormalSelectViewState extends State<DCFilterNormalSelectView> {
   List<String> _tempSelectedIds = [];
 
   /// 展示数据
-  List<FilterOption> get optionList {
+  List<DCFilterOption> get optionList {
     if (widget.showUnlimited) {
       // 增加不限选项
       return [
-        FilterOption(
+        DCFilterOption(
           id: '0',
           name: widget.unlimitedText,
         ),
@@ -227,7 +227,7 @@ class _DCFilterNormalSelectViewState extends State<DCFilterNormalSelectView> {
   }
 
   /// 构建选项
-  Widget _buildOption(FilterOption option) {
+  Widget _buildOption(DCFilterOption option) {
     final isSelected = _tempSelectedIds.contains(option.id);
     Widget resultWidget = Text(
       option.name,

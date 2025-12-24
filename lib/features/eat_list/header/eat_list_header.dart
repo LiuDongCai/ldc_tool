@@ -28,6 +28,9 @@ enum EatListFilterType {
   /// 菜系筛选
   foodType('foodType'),
 
+  /// 价格筛选
+  priceType('priceType'),
+
   /// 更多筛选
   more('more'),
 

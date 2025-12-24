@@ -47,4 +47,52 @@ mixin EatListStateFilter on EatListCommonState {
 
   /// 排序类型
   EatListFilterSortType sortType = EatListFilterSortType.defaultSort;
+
+  // /// 价格数据
+  // List<DCPriceRangeOption> priceDataList = [
+  //   DCPriceRangeOption(
+  //     id: '1',
+  //     name: '10-30元',
+  //     range: DCPriceRange(minPrice: 10, maxPrice: 30),
+  //   ),
+  //   DCPriceRangeOption(
+  //     id: '2',
+  //     name: '30-50元',
+  //     range: DCPriceRange(minPrice: 30, maxPrice: 50),
+  //   ),
+  //   DCPriceRangeOption(
+  //     id: '3',
+  //     name: '50-100元',
+  //     range: DCPriceRange(minPrice: 50, maxPrice: 100),
+  //   ),
+  //   DCPriceRangeOption(
+  //     id: '4',
+  //     name: '100-200元',
+  //     range: DCPriceRange(minPrice: 100, maxPrice: 200),
+  //   ),
+  //   DCPriceRangeOption(
+  //     id: '5',
+  //     name: '200-500元',
+  //     range: DCPriceRange(minPrice: 200, maxPrice: 500),
+  //   ),
+  //   DCPriceRangeOption(
+  //     id: '6',
+  //     name: '500元以上',
+  //     range: DCPriceRange(minPrice: 500),
+  //   ),
+  // ];
+
+  // /// 选中的价格列表
+  // DCPriceRangeOption? selectedPriceRange;
+
+  // /// 选中的价格名称
+  // String get selectedPriceName {
+  //   if (selectedPriceRange == null) return '价格';
+  //   final minPrice = selectedPriceRange?.range.minPrice;
+  //   final maxPrice = selectedPriceRange?.range.maxPrice;
+  //   if (minPrice == null && maxPrice == null) return '价格';
+  //   if (minPrice == null) return '$maxPrice元以上';
+  //   if (maxPrice == null) return '$minPrice元以下';
+  //   return '$minPrice-$maxPrice元';
+  // }
 }

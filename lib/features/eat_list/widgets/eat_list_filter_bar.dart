@@ -25,6 +25,7 @@ class _EatListFilterBarState extends State<EatListFilterBar>
   final GlobalKey _foodTypeKey = GlobalKey();
   final GlobalKey _moreKey = GlobalKey();
   final GlobalKey _sortKey = GlobalKey();
+  // final GlobalKey _priceKey = GlobalKey();
 
   /// 弹窗状态变化回调
   void _onFilterDropdownStateChanged() {
@@ -61,6 +62,7 @@ class _EatListFilterBarState extends State<EatListFilterBar>
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              // 品类
               DCFilterTabItem(
                 key: _categoryKey,
                 title: state.selectedMainTypeName,
@@ -72,6 +74,7 @@ class _EatListFilterBarState extends State<EatListFilterBar>
                   _categoryKey.currentContext?.findRenderObject() as RenderBox?,
                 ),
               ),
+              // 区域
               DCFilterTabItem(
                 key: _sectionKey,
                 title: state.selectedSectionName,
@@ -83,6 +86,7 @@ class _EatListFilterBarState extends State<EatListFilterBar>
                   _sectionKey.currentContext?.findRenderObject() as RenderBox?,
                 ),
               ),
+              // 菜系
               DCFilterTabItem(
                 key: _foodTypeKey,
                 title: state.selectedFoodTypeName,
@@ -94,6 +98,20 @@ class _EatListFilterBarState extends State<EatListFilterBar>
                   _foodTypeKey.currentContext?.findRenderObject() as RenderBox?,
                 ),
               ),
+              // // 价格
+              // DCFilterTabItem(
+              //   key: _priceKey,
+              //   title: state.selectedPriceName,
+              //   isSelected: state.selectedPriceRange != null &&
+              //       state.selectedPriceRange?.id != '0',
+              //   isOpen: DCFilterDropdown.currentFilterType ==
+              //       EatListFilterType.priceType.type,
+              //   onTap: () => logic.handlePriceFilterClick(
+              //     context,
+              //     _priceKey.currentContext?.findRenderObject() as RenderBox?,
+              //   ),
+              // ),
+              // 更多
               DCFilterTabItem(
                 key: _moreKey,
                 title: '更多',
@@ -105,6 +123,7 @@ class _EatListFilterBarState extends State<EatListFilterBar>
                   _moreKey.currentContext?.findRenderObject() as RenderBox?,
                 ),
               ),
+              // 排序
               DCFilterTabItem(
                 key: _sortKey,
                 title: _getSortTitle(),

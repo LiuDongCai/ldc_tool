@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
-import 'package:ldc_tool/base/filter/filter_model.dart';
+import 'package:ldc_tool/base/filter/model/dc_filter_model.dart';
 import 'package:ldc_tool/base/filter/filter_overlay.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 
@@ -176,7 +176,7 @@ class _FilterThreeLevelState extends State<FilterThreeLevel> {
   }
 
   /// 构建第一级选项项
-  Widget _buildLevel1Option(FilterOption option) {
+  Widget _buildLevel1Option(DCFilterOption option) {
     final isSelected = _data.selectedLevel1Id == option.id;
     Widget resultWidget = GestureDetector(
       behavior: HitTestBehavior.translucent,
@@ -266,7 +266,7 @@ class _FilterThreeLevelState extends State<FilterThreeLevel> {
   }
 
   /// 构建第二级选项
-  Widget _buildLevel2Option(FilterOption option) {
+  Widget _buildLevel2Option(DCFilterOption option) {
     final isSelected = _data.selectedLevel2Id == option.id;
     Widget resultWidget = GestureDetector(
       behavior: HitTestBehavior.translucent,
@@ -342,7 +342,7 @@ class _FilterThreeLevelState extends State<FilterThreeLevel> {
   }
 
   /// 构建第三级选项
-  Widget _buildLevel3Option(FilterOption option) {
+  Widget _buildLevel3Option(DCFilterOption option) {
     final isSelected = _data.selectedLevel3Id == option.id;
     Widget resultWidget = GestureDetector(
       behavior: HitTestBehavior.translucent,

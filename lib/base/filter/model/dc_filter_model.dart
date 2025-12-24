@@ -1,5 +1,5 @@
 /// 筛选选项模型
-class FilterOption {
+class DCFilterOption {
   /// 选项ID
   final String id;
 
@@ -10,9 +10,9 @@ class FilterOption {
   final bool isSelected;
 
   /// 子选项（用于三级筛选）
-  final List<FilterOption>? children;
+  final List<DCFilterOption>? children;
 
-  FilterOption({
+  DCFilterOption({
     required this.id,
     required this.name,
     this.isSelected = false,
@@ -20,13 +20,13 @@ class FilterOption {
   });
 
   /// 复制并更新选中状态
-  FilterOption copyWith({
+  DCFilterOption copyWith({
     String? id,
     String? name,
     bool? isSelected,
-    List<FilterOption>? children,
+    List<DCFilterOption>? children,
   }) {
-    return FilterOption(
+    return DCFilterOption(
       id: id ?? this.id,
       name: name ?? this.name,
       isSelected: isSelected ?? this.isSelected,
@@ -36,33 +36,74 @@ class FilterOption {
 }
 
 /// 筛选组模型
-class FilterGroup {
+class DCFilterGroup {
   /// 组标题
   final String title;
 
   /// 选项列表
-  final List<FilterOption> options;
+  final List<DCFilterOption> options;
 
   /// 是否多选
   final bool isMultiSelect;
 
-  FilterGroup({
+  DCFilterGroup({
     required this.title,
     required this.options,
     this.isMultiSelect = false,
   });
 }
 
+/// 价格范围选项
+class DCPriceRangeOption {
+  /// 选项ID
+  final String id;
+
+  /// 选项名称
+  final String name;
+
+  /// 价格范围
+  final DCPriceRange range;
+
+  DCPriceRangeOption({
+    required this.id,
+    required this.name,
+    required this.range,
+  });
+
+  @override
+  String toString() {
+    return 'PriceRangeOption(id: $id, name: $name, range: ${range.minPrice}-${range.maxPrice}元)';
+  }
+}
+
+/// 价格范围模型
+class DCPriceRange {
+  /// 最低价格
+  final int? minPrice;
+
+  /// 最高价格
+  final int? maxPrice;
+
+  /// 单位
+  final String unit;
+
+  DCPriceRange({
+    this.minPrice,
+    this.maxPrice,
+    this.unit = '元',
+  });
+}
+
 /// 三级筛选数据模型
 class ThreeLevelFilterData {
   /// 第一级数据（如：城市）
-  final List<FilterOption> level1;
+  final List<DCFilterOption> level1;
 
   /// 第二级数据（如：区域）
-  final List<FilterOption>? level2;
+  final List<DCFilterOption>? level2;
 
   /// 第三级数据（如：生活圈）
-  final List<FilterOption>? level3;
+  final List<DCFilterOption>? level3;
 
   /// 当前选中的第一级ID
   final String? selectedLevel1Id;
@@ -84,9 +125,9 @@ class ThreeLevelFilterData {
 
   /// 复制并更新选中状态
   ThreeLevelFilterData copyWith({
-    List<FilterOption>? level1,
-    List<FilterOption>? level2,
-    List<FilterOption>? level3,
+    List<DCFilterOption>? level1,
+    List<DCFilterOption>? level2,
+    List<DCFilterOption>? level3,
     String? selectedLevel1Id,
     String? selectedLevel2Id,
     String? selectedLevel3Id,
@@ -100,22 +141,4 @@ class ThreeLevelFilterData {
       selectedLevel3Id: selectedLevel3Id ?? this.selectedLevel3Id,
     );
   }
-}
-
-/// 价格范围模型
-class PriceRange {
-  /// 最低价格
-  final double? minPrice;
-
-  /// 最高价格
-  final double? maxPrice;
-
-  /// 单位
-  final String unit;
-
-  PriceRange({
-    this.minPrice,
-    this.maxPrice,
-    this.unit = '万/坪',
-  });
 }
