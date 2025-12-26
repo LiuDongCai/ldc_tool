@@ -41,6 +41,9 @@ dependencies:
   # 吐司组件
   oktoast: ^3.4.0
 
+  # 评分组件
+  flutter_rating_bar: ^4.0.1
+
   # 日志组件
   logger: ^2.6.2
 
@@ -111,6 +114,7 @@ flutter:
     - assets/image/
     - assets/image/common/
     - assets/image/eat/
+    - assets/image/eat_list/
     - assets/image/home/
     - assets/json/eat/eat_main.json
     - assets/json/eat/eat_drink.json

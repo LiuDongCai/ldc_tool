@@ -8,6 +8,7 @@ import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_filter.dart';
 import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
 import 'package:ldc_tool/features/eat_list/widgets/eat_list_view.dart';
 import 'package:ldc_tool/features/eat_list/widgets/eat_list_filter_bar.dart';
+import 'package:ldc_tool/gen/assets.gen.dart';
 
 class EatListPage extends StatefulWidget {
   const EatListPage({super.key});
@@ -73,6 +74,18 @@ class EatListPageState extends State<EatListPage>
                 child: EatListView(),
               ),
             ],
+          ),
+          // 右下角悬浮按钮,随机选择当前列表的餐馆
+          floatingActionButton: GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              logic.handleRandomCurrentEatList(context);
+            },
+            child: Image.asset(
+              Assets.image.eatList.eatListRandom.path,
+              width: 45.w,
+              height: 45.w,
+            ),
           ),
         );
         return resultWidget;

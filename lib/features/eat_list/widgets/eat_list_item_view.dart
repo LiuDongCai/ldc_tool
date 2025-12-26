@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/common/widgets/image/dc_cached_image.dart';
@@ -64,7 +65,7 @@ class _EatListItemViewState extends State<EatListItemView> {
         SizedBox(height: 2.w),
         _buildCashback(),
         SizedBox(height: 2.w),
-        _buildPrice(),
+        _buildScoreAndPrice(),
       ],
     );
     return resultWidget;
@@ -138,30 +139,41 @@ class _EatListItemViewState extends State<EatListItemView> {
     );
   }
 
-  /// 价格
-  Widget _buildPrice() {
-    Widget resultWidget = Text(
-      model.price ?? '',
-      style: TextStyle(
-        fontSize: 14.sp,
-        color: DCColors.dcF01800,
-        height: 22 / 14,
-      ),
-    );
-    resultWidget = Row(
+  /// 评分价格
+  Widget _buildScoreAndPrice() {
+    final double score = model.score ?? 3;
+    Widget resultWidget = Row(
       children: [
-        resultWidget,
-        SizedBox(
-          width: 16.w,
+        RatingBarIndicator(
+          rating: score,
+          direction: Axis.horizontal,
+          itemCount: 5,
+          itemSize: 16.w,
+          itemBuilder: (context, _) => const Icon(
+            Icons.star,
+            color: DCColors.dcFF8000,
+          ),
         ),
+        SizedBox(width: 2.w),
         Text(
-          '${model.score}',
+          '$score',
+          style: TextStyle(
+            fontSize: 12.sp,
+            color: DCColors.dcFF8000,
+            height: 20 / 12,
+          ),
+        ),
+        const Spacer(),
+        Text(
+          model.price ?? '',
           style: TextStyle(
             fontSize: 14.sp,
-            color: DCColors.dc42CC8F,
+            color: DCColors.dcF01800,
+            fontWeight: FontWeight.w500,
             height: 22 / 14,
           ),
         ),
+        SizedBox(width: 4.w),
       ],
     );
     return resultWidget;

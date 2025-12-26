@@ -18,6 +18,9 @@ class $AssetsImageGen {
   /// Directory path: assets/image/eat
   $AssetsImageEatGen get eat => const $AssetsImageEatGen();
 
+  /// Directory path: assets/image/eat_list
+  $AssetsImageEatListGen get eatList => const $AssetsImageEatListGen();
+
   /// Directory path: assets/image/home
   $AssetsImageHomeGen get home => const $AssetsImageHomeGen();
 }
@@ -81,6 +84,17 @@ class $AssetsImageEatGen {
     eatMain,
     eatRestaurant,
   ];
+}
+
+class $AssetsImageEatListGen {
+  const $AssetsImageEatListGen();
+
+  /// File path: assets/image/eat_list/eat_list_random.png
+  AssetGenImage get eatListRandom =>
+      const AssetGenImage('assets/image/eat_list/eat_list_random.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [eatListRandom];
 }
 
 class $AssetsImageHomeGen {

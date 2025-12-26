@@ -31,11 +31,11 @@ enum FoodType {
   /// 川湘菜
   sichuan(5),
 
-  /// 川渝火锅
-  sichuanHotpot(6),
+  /// 火锅
+  hotpot(6),
 
-  /// 潮汕牛肉火锅
-  chaoshanHotpot(7),
+  /// 江浙菜
+  jiangzhe(7),
 
   /// 东北菜
   northeast(8),
@@ -81,8 +81,8 @@ enum FoodType {
         FoodType.chaoshan => '潮汕菜',
         FoodType.barbecue => '烧烤烤串',
         FoodType.sichuan => '川湘菜',
-        FoodType.sichuanHotpot => '川渝火锅',
-        FoodType.chaoshanHotpot => '潮汕牛肉火锅',
+        FoodType.hotpot => '火锅',
+        FoodType.jiangzhe => '江浙菜',
         FoodType.northeast => '东北菜',
         FoodType.japanese => '日式料理',
         FoodType.korean => '韩式料理',
