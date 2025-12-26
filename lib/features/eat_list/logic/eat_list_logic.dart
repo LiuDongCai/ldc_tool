@@ -9,6 +9,7 @@ import 'package:ldc_tool/features/eat/header/eat_header.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_filter.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_list.dart';
 import 'package:ldc_tool/features/eat_list/state/eat_list_state.dart';
+import 'package:ldc_tool/features/eat_list/widgets/eat_list_feedback_dialog.dart';
 import 'package:ldc_tool/features/eat_list/widgets/eat_list_random_result_dialog.dart';
 
 class EatListLogic extends GetxController {
@@ -57,6 +58,17 @@ class EatListLogic extends GetxController {
       context: context,
       builder: (context) {
         return EatListRandomResultDialog(model: randomRestaurant);
+      },
+    );
+  }
+
+  /// 反馈补充餐馆
+  void handleFeedbackClick(BuildContext context) {
+    // 弹窗展示反馈对话框
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const EatListFeedbackDialog();
       },
     );
   }

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:ldc_tool/base/cache/dc_cache.dart';
 import 'package:ldc_tool/features/common/dc_router_config.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:umeng_common_sdk/umeng_common_sdk.dart';
 
 void main() async {
   // 确保 WidgetsFlutterBinding 初始化
@@ -17,8 +18,25 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    // 初始化友盟统计
+    UmengCommonSdk.initCommon(
+      '694e2ae78560e3487211e59f', // 友盟统计Android AppKey
+      '694e2e9d8560e3487211e89c', // 友盟统计iOS AppKey
+      'Umeng',
+    );
+    UmengCommonSdk.setPageCollectionModeManual();
+  }
 
   @override
   Widget build(BuildContext context) {

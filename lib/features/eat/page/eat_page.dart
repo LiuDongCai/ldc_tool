@@ -6,6 +6,7 @@ import 'package:ldc_tool/features/eat/logic/eat_logic.dart';
 import 'package:ldc_tool/features/eat/state/eat_state.dart';
 import 'package:ldc_tool/features/eat/widgets/eat_banner_view.dart';
 import 'package:ldc_tool/features/eat/widgets/eat_menu_view.dart';
+import 'package:ldc_tool/features/eat/widgets/eat_random_view.dart';
 
 class EatPage extends StatefulWidget {
   const EatPage({super.key});
@@ -54,6 +55,8 @@ class EatPageState extends State<EatPage> with EatLogicPutMixin<EatPage> {
           EatBannerView(),
           // 菜单栏
           EatMenuView(),
+          // 帮我选择
+          EatRandomView(),
         ],
       ),
     );

@@ -46,17 +46,17 @@ class $AssetsImageCommonGen {
 class $AssetsImageEatGen {
   const $AssetsImageEatGen();
 
-  /// File path: assets/image/eat/eat_banner1.png
+  /// File path: assets/image/eat/eat_banner1.jpg
   AssetGenImage get eatBanner1 =>
-      const AssetGenImage('assets/image/eat/eat_banner1.png');
+      const AssetGenImage('assets/image/eat/eat_banner1.jpg');
 
-  /// File path: assets/image/eat/eat_banner2.png
+  /// File path: assets/image/eat/eat_banner2.jpg
   AssetGenImage get eatBanner2 =>
-      const AssetGenImage('assets/image/eat/eat_banner2.png');
+      const AssetGenImage('assets/image/eat/eat_banner2.jpg');
 
-  /// File path: assets/image/eat/eat_banner3.png
+  /// File path: assets/image/eat/eat_banner3.jpg
   AssetGenImage get eatBanner3 =>
-      const AssetGenImage('assets/image/eat/eat_banner3.png');
+      const AssetGenImage('assets/image/eat/eat_banner3.jpg');
 
   /// File path: assets/image/eat/eat_dessert.png
   AssetGenImage get eatDessert =>
@@ -93,19 +93,27 @@ class $AssetsImageEatListGen {
   AssetGenImage get eatListRandom =>
       const AssetGenImage('assets/image/eat_list/eat_list_random.png');
 
+  /// File path: assets/image/eat_list/et_list_feedback.png
+  AssetGenImage get etListFeedback =>
+      const AssetGenImage('assets/image/eat_list/et_list_feedback.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [eatListRandom];
+  List<AssetGenImage> get values => [eatListRandom, etListFeedback];
 }
 
 class $AssetsImageHomeGen {
   const $AssetsImageHomeGen();
+
+  /// File path: assets/image/home/home_banner1.jpg
+  AssetGenImage get homeBanner1 =>
+      const AssetGenImage('assets/image/home/home_banner1.jpg');
 
   /// File path: assets/image/home/home_ic_eat.png
   AssetGenImage get homeIcEat =>
       const AssetGenImage('assets/image/home/home_ic_eat.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [homeIcEat];
+  List<AssetGenImage> get values => [homeBanner1, homeIcEat];
 }
 
 class $AssetsJsonEatGen {

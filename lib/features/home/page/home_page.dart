@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/common/widgets/dc_overlay_context_view.dart';
 import 'package:ldc_tool/features/home/logic/home_logic.dart';
 import 'package:ldc_tool/features/home/header/home_header.dart';
 import 'package:ldc_tool/features/home/state/home_state.dart';
+import 'package:ldc_tool/features/home/widgets/home_banner_view.dart';
 import 'package:ldc_tool/features/home/widgets/home_menu_view.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,17 +47,13 @@ class HomePageState extends State<HomePage> with HomeLogicPutMixin<HomePage> {
 
   /// 构建主体内容
   Widget _buildBody() {
-    Widget resultWidget = SingleChildScrollView(
+    Widget resultWidget = const SingleChildScrollView(
       child: Column(
         children: [
           // 头部广告
-          Container(
-            height: 100.w,
-            width: double.infinity,
-            color: Colors.red,
-          ),
+          HomeBannerView(),
           // 菜单栏
-          const HomeMenuView(),
+          HomeMenuView(),
         ],
       ),
     );

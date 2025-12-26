@@ -7,3 +7,9 @@ typedef HomeLogicPutMixin<W extends StatefulWidget>
 
 typedef HomeLogicConsumerMixin<W extends StatefulWidget>
     = DCLogicConsumerStateMixin<HomeLogic, W>;
+
+/// 更新类型
+enum HomeUpdateId {
+  /// 轮播图指示器
+  homeBannerIndicator,
+}
