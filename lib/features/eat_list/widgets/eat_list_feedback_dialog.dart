@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
+import 'package:ldc_tool/common/util/dc_keyboard_tool.dart';
 import 'package:ldc_tool/common/widgets/toast/dc_toast.dart';
 import 'package:ldc_tool/features/common/count/dc_event_config.dart';
 import 'package:ldc_tool/features/common/count/dc_event_count.dart';
@@ -17,6 +19,9 @@ class EatListFeedbackDialog extends StatefulWidget {
 class _EatListFeedbackDialogState extends State<EatListFeedbackDialog> {
   /// 反馈控制器
   final TextEditingController _feedbackController = TextEditingController();
+
+  /// 评分
+  double _score = 3.5;
 
   @override
   void dispose() {
@@ -36,6 +41,9 @@ class _EatListFeedbackDialogState extends State<EatListFeedbackDialog> {
         SizedBox(height: 12.w),
         _buildFeedbackInput(),
         SizedBox(height: 12.w),
+        _buildFeedbackScore(),
+        SizedBox(height: 12.w),
+        _buildFeedbackTip(),
         _buildFeedbackButton(),
         SizedBox(height: 12.w),
       ],
@@ -51,6 +59,7 @@ class _EatListFeedbackDialogState extends State<EatListFeedbackDialog> {
             color: DCColors.dc42CC8F,
             iconSize: 28.sp,
             onPressed: () {
+              DCKeyboardTool.hideKeyboard(context: context);
               Navigator.pop(context);
             },
             icon: const Icon(
@@ -76,6 +85,14 @@ class _EatListFeedbackDialogState extends State<EatListFeedbackDialog> {
       child: resultWidget,
     );
     resultWidget = Center(
+      child: resultWidget,
+    );
+    resultWidget = GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        // 点击空白处隐藏软键盘
+        DCKeyboardTool.hideKeyboard(context: context);
+      },
       child: resultWidget,
     );
     return resultWidget;
@@ -152,6 +169,65 @@ class _EatListFeedbackDialogState extends State<EatListFeedbackDialog> {
     return resultWidget;
   }
 
+  /// 反馈评分
+  Widget _buildFeedbackScore() {
+    Widget resultWidget = RatingBar.builder(
+      initialRating: _score,
+      minRating: 0.5,
+      itemCount: 5,
+      itemSize: 25.w,
+      direction: Axis.horizontal,
+      allowHalfRating: true,
+      updateOnDrag: true,
+      itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+      itemBuilder: (context, _) => const Icon(
+        Icons.star,
+        color: DCColors.dcFF8000,
+      ),
+      onRatingUpdate: (rating) {
+        setState(() {
+          _score = rating;
+        });
+      },
+    );
+    resultWidget = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        resultWidget,
+        Text(
+          '$_score',
+          style: TextStyle(
+            fontSize: 14.sp,
+            color: DCColors.dcFF8000,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+    return resultWidget;
+  }
+
+  /// 反馈提示
+  Widget _buildFeedbackTip() {
+    if (_score > 3) {
+      return const SizedBox.shrink();
+    }
+    Widget resultWidget = Text(
+      '此功能旨在为用户提供好吃的餐馆\n3分以下的餐馆不支持添加!',
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 12.sp,
+        color: Colors.red,
+        height: 20 / 14,
+      ),
+    );
+    resultWidget = Container(
+      margin: EdgeInsets.symmetric(horizontal: 16.w),
+      child: resultWidget,
+    );
+    return resultWidget;
+  }
+
   /// 反馈按钮
   Widget _buildFeedbackButton() {
     Widget resultWidget = Text(
@@ -180,11 +256,16 @@ class _EatListFeedbackDialogState extends State<EatListFeedbackDialog> {
           DCToast.show(message: '请输入餐馆名称');
           return;
         }
+        if (_score < 3) {
+          DCToast.show(message: '3分以下的餐馆不支持添加');
+          return;
+        }
         // 统计事件
         DCEventCount.countEvent(
           DCEventName.eatNameFeedback,
           params: {
-            DCEventParams.eatName: eatName,
+            DCEventParams.name: eatName,
+            DCEventParams.score: _score,
             DCEventParams.submitTime: DateTime.now().millisecondsSinceEpoch,
           },
         );

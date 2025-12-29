@@ -9,7 +9,7 @@ class DCEventCount {
     // 发送自定义事件
     // 参数说明：目前属性值支持字符、整数、浮点、长整数，暂不支持NULL、布尔、MAP、数组
     UmengCommonSdk.onEvent(
-      "eventName",
+      eventName,
       params ?? {},
     );
   }

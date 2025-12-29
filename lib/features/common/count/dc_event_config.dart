@@ -1,6 +1,9 @@
 class DCEventParams {
-  /// 餐馆名称
-  static const String eatName = 'eat_name';
+  /// 名称
+  static const String name = 'names';
+
+  /// 评分
+  static const String score = 'score';
 
   /// 提交时间
   static const String submitTime = 'submit_time';
