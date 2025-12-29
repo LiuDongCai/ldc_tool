@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic.dart';
 import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
@@ -23,6 +24,12 @@ class EatListPageState extends State<EatListPage>
 
   @override
   EatListLogic dcInitLogic() => EatListLogic();
+
+  @override
+  void initState() {
+    super.initState();
+    DCFilterDropdown.themeColor = DCColors.dc42CC8F;
+  }
 
   @override
   void dispose() {

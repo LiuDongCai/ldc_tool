@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 
 /// 筛选底部按钮组件
@@ -110,7 +111,7 @@ class _DCFilterBottomButtonsState extends State<DCFilterBottomButtons> {
     resultWidget = Container(
       height: 44.w,
       decoration: BoxDecoration(
-        color: DCColors.dc42CC8F,
+        color: DCFilterDropdown.themeColor,
         borderRadius: BorderRadius.circular(8.w),
       ),
       alignment: Alignment.center,

@@ -25,6 +25,15 @@ class MainState {
     MainBottomNavigationBarType.mine: GlobalKey(),
   };
 
+  /// 当前选中的底部导航栏类型
+  MainBottomNavigationBarType get currentBottomNavigationBarType {
+    if (currentIndex < 0 ||
+        currentIndex >= bottomNavigationBarTypeList.length) {
+      return MainBottomNavigationBarType.home;
+    }
+    return bottomNavigationBarTypeList[currentIndex];
+  }
+
   /// 所有页面（未加载的页面取到的是Container）
   List<Widget> get pageList => mainKey.currentState?.pageList ?? [];
 

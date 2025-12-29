@@ -1,12 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ldc_tool/base/filter/filter_overlay.dart';
+import 'package:ldc_tool/common/colors/dc_colors.dart';
 
 /// 筛选下拉弹窗工具类
 class DCFilterDropdown {
   /// 当前打开的弹窗
   static OverlayEntry? _currentOverlayEntry;
   static Completer<dynamic>? _currentCompleter;
+
+  /// 主题颜色
+  static Color themeColor = DCColors.dc42CC8F;
 
   /// 当前打开的筛选类型标识
   static String? _currentFilterType;

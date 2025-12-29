@@ -119,7 +119,7 @@ class _DCFilterSingleListSelectViewState
       widget.unlimitedText,
       style: TextStyle(
         fontSize: 14.sp,
-        color: isSelected ? DCColors.dc42CC8F : DCColors.dc666666,
+        color: isSelected ? DCFilterDropdown.themeColor : DCColors.dc666666,
         fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
       ),
       maxLines: 1,
@@ -150,7 +150,7 @@ class _DCFilterSingleListSelectViewState
       option.name,
       style: TextStyle(
         fontSize: 14.sp,
-        color: isSelected ? DCColors.dc42CC8F : DCColors.dc666666,
+        color: isSelected ? DCFilterDropdown.themeColor : DCColors.dc666666,
         fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
       ),
       maxLines: 1,

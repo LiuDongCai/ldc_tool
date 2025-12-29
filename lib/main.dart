@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/base/cache/dc_cache.dart';
+import 'package:ldc_tool/base/network/dc_network.dart';
 import 'package:ldc_tool/features/common/dc_router_config.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:umeng_common_sdk/umeng_common_sdk.dart';
@@ -36,6 +37,15 @@ class _MyAppState extends State<MyApp> {
       'Umeng',
     );
     UmengCommonSdk.setPageCollectionModeManual();
+
+    // 初始化网络请求
+    DCNetwork.instance.init(
+      connectTimeout: 30000,
+      receiveTimeout: 30000,
+      retryCount: 3, // 失败重试 3 次
+      retryDelay: 1000, // 重试间隔 1 秒
+      enableLog: true,
+    );
   }
 
   @override

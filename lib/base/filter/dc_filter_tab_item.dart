@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ldc_tool/base/filter/dc_filter.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 
 /// 筛选项组件
@@ -97,7 +98,7 @@ class _DCFilterTabItemState extends State<DCFilterTabItem>
             widget.title,
             style: TextStyle(
               fontSize: 12.sp,
-              color: isActive ? DCColors.dc42CC8F : DCColors.dc666666,
+              color: isActive ? DCFilterDropdown.themeColor : DCColors.dc666666,
               fontWeight: isActive ? FontWeight.w500 : FontWeight.normal,
             ),
             maxLines: 1,
@@ -110,7 +111,7 @@ class _DCFilterTabItemState extends State<DCFilterTabItem>
           child: Icon(
             Icons.keyboard_arrow_down,
             size: 16.w,
-            color: isActive ? DCColors.dc42CC8F : DCColors.dc999999,
+            color: isActive ? DCFilterDropdown.themeColor : DCColors.dc999999,
           ),
         ),
       ],
@@ -123,11 +124,11 @@ class _DCFilterTabItemState extends State<DCFilterTabItem>
       ),
       decoration: BoxDecoration(
         color: isActive
-            ? DCColors.dc42CC8F.withValues(alpha: 0.1)
+            ? DCFilterDropdown.themeColor.withValues(alpha: 0.1)
             : DCColors.dcF5F5F5,
         borderRadius: BorderRadius.circular(6.w),
         border: Border.all(
-          color: isActive ? DCColors.dc42CC8F : DCColors.dcF5F5F5,
+          color: isActive ? DCFilterDropdown.themeColor : DCColors.dcF5F5F5,
           width: 1.w,
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ldc_tool/base/filter/dc_filter.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 
 /// 筛选遮罩层组件
@@ -100,11 +101,12 @@ class FilterOverlay extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: isSelected
-              ? DCColors.dc42CC8F.withValues(alpha: 0.1)
+              ? DCFilterDropdown.themeColor.withValues(alpha: 0.1)
               : DCColors.dcFFFFFF,
           border: Border(
             left: BorderSide(
-              color: isSelected ? DCColors.dc42CC8F : Colors.transparent,
+              color:
+                  isSelected ? DCFilterDropdown.themeColor : Colors.transparent,
               width: 3.w,
             ),
           ),
@@ -116,7 +118,9 @@ class FilterOverlay extends StatelessWidget {
               item.title,
               style: TextStyle(
                 fontSize: 14.sp,
-                color: isSelected ? DCColors.dc42CC8F : DCColors.dc333333,
+                color: isSelected
+                    ? DCFilterDropdown.themeColor
+                    : DCColors.dc333333,
                 fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
               ),
             ),

@@ -175,7 +175,7 @@ class _DCFilterMoreSelectViewState extends State<DCFilterMoreSelectView> {
       option.name,
       style: TextStyle(
         fontSize: 14.sp,
-        color: isSelected ? DCColors.dc42CC8F : DCColors.dc666666,
+        color: isSelected ? DCFilterDropdown.themeColor : DCColors.dc666666,
         fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
       ),
       maxLines: 1,
@@ -184,10 +184,10 @@ class _DCFilterMoreSelectViewState extends State<DCFilterMoreSelectView> {
     resultWidget = Container(
       decoration: BoxDecoration(
         color: isSelected
-            ? DCColors.dc42CC8F.withValues(alpha: 0.1)
+            ? DCFilterDropdown.themeColor.withValues(alpha: 0.1)
             : DCColors.dcF5F5F5,
         border: Border.all(
-          color: isSelected ? DCColors.dc42CC8F : DCColors.dcF5F5F5,
+          color: isSelected ? DCFilterDropdown.themeColor : DCColors.dcF5F5F5,
           width: 1.w,
         ),
         borderRadius: BorderRadius.circular(4.w),

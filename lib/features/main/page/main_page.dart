@@ -94,14 +94,14 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
         fontWeight: FontWeight.w500,
       ),
       selectedIconTheme: IconThemeData(
-        color: DCColors.dc42CC8F,
+        color: _getThemeColor(),
         size: 26.w,
       ),
       unselectedIconTheme: IconThemeData(
         color: DCColors.dc666666,
         size: 24.w,
       ),
-      selectedItemColor: DCColors.dc42CC8F,
+      selectedItemColor: _getThemeColor(),
       unselectedItemColor: DCColors.dc666666,
       items: const [
         BottomNavigationBarItem(
@@ -123,5 +123,19 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
       ],
     );
     return resultWidget;
+  }
+
+  /// 主题色
+  Color _getThemeColor() {
+    switch (state.currentBottomNavigationBarType) {
+      case MainBottomNavigationBarType.home:
+        return DCColors.dcFF8000;
+      case MainBottomNavigationBarType.eat:
+        return DCColors.dc42CC8F;
+      case MainBottomNavigationBarType.tool:
+        return DCColors.dcFF8000;
+      case MainBottomNavigationBarType.mine:
+        return DCColors.dcFF8000;
+    }
   }
 }
