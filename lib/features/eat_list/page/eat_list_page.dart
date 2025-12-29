@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/base/filter/dc_filter_dropdown.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
+import 'package:ldc_tool/common/widgets/loading/tw_loading_widget.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic.dart';
 import 'package:ldc_tool/features/eat_list/header/eat_list_header.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_filter.dart';
@@ -44,6 +45,9 @@ class EatListPageState extends State<EatListPage>
     Widget resultWidget = GetBuilder<EatListLogic>(
       tag: logicTag,
       builder: (_) {
+        if (state.eatList.isEmpty) {
+          return const DCLoadingWidget();
+        }
         Widget resultWidget = Scaffold(
           backgroundColor: DCColors.dcF2F4F7,
           appBar: AppBar(

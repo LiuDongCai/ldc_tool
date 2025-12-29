@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ldc_tool/features/common/dc_router_config.dart';
+import 'package:ldc_tool/features/common/router/dc_router_config.dart';
 import 'package:ldc_tool/features/common/model/dc_menu_model.dart';
 import 'package:ldc_tool/features/home/state/home_state.dart';
 import 'package:ldc_tool/gen/assets.gen.dart';

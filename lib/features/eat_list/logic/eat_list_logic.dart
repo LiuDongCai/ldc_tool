@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/base/router/dc_router.dart';
 import 'package:ldc_tool/common/widgets/toast/dc_toast.dart';
-import 'package:ldc_tool/features/common/dc_router_config.dart';
+import 'package:ldc_tool/features/common/router/dc_router_config.dart';
 import 'package:ldc_tool/features/eat/header/eat_header.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_filter.dart';
 import 'package:ldc_tool/features/eat_list/logic/eat_list_logic_list.dart';
@@ -26,7 +26,8 @@ class EatListLogic extends GetxController {
     );
 
     // 获取餐馆列表
-    fetchEatList();
+    await fetchEatList();
+    update();
   }
 
   /// 跳转到随机点餐

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/base/router/dc_router.dart';
-import 'package:ldc_tool/features/common/dc_router_config.dart';
+import 'package:ldc_tool/features/common/router/dc_router_config.dart';
 import 'package:ldc_tool/features/eat/state/eat_state.dart';
 import 'package:ldc_tool/features/eat_list/widgets/eat_list_feedback_dialog.dart';
 
