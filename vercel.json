@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "public": false,
+    "builds": [],
+    "routes": [
+        {
+            "src": "/main/list",
+            "dest": "assets/json/eat/eat_main.json"
+        },
+        {
+            "src": "/drink/list",
+            "dest": "assets/json/eat/eat_drink.json"
+        },
+        {
+            "src": "/dessert/list",
+            "dest": "assets/json/eat/eat_dessert.json"
+        }
+    ]
+}
