@@ -115,7 +115,7 @@ class _EatListFeedbackDialogState extends State<EatListFeedbackDialog> {
   /// 反馈信息
   Widget _buildFeedbackInfo() {
     Widget resultWidget = Text(
-      '听说您有好吃的餐馆推荐，下个版本添加吧～',
+      '听说您有好吃的餐馆推荐，俺看到后会添加进去哈',
       style: TextStyle(
         fontSize: 14.sp,
         color: DCColors.dc666666,
