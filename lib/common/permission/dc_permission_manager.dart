@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:app_settings/app_settings.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:ldc_tool/common/util/dc_tool.dart';
 import 'package:ldc_tool/common/widgets/dialog/dc_alert_dialog.dart';
 import 'package:ldc_tool/common/widgets/toast/dc_toast.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -24,7 +23,7 @@ class DCPermissionManager {
   /// 检查相片和影片权限（若没有权限则会自动申请权限）
   Future<bool> checkPhotosPermission(BuildContext context) async {
     List<Permission> permissions = [];
-    if (Platform.isAndroid) {
+    if (DCTool.isAndroid) {
       final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
       final AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
       var androidSdkInt = androidInfo.version.sdkInt;

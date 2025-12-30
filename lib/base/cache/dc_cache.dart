@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:hive_ce/hive_ce.dart';
 import 'package:ldc_tool/common/util/dc_log.dart';
 import 'package:path_provider/path_provider.dart';
@@ -34,26 +35,36 @@ class DCCache {
     }
 
     try {
-      String finalPath;
+      String? finalPath;
       if (path != null) {
         finalPath = path;
-      } else {
-        // 自动获取应用文档目录
+      } else if (!kIsWeb) {
+        // 非 web 平台：自动获取应用文档目录
         final directory = await getApplicationDocumentsDirectory();
         finalPath = directory.path;
         DCLog.d('DCCache 自动获取应用文档目录: $finalPath');
+
+        // 确保目录存在
+        final dir = Directory(finalPath);
+        if (!await dir.exists()) {
+          await dir.create(recursive: true);
+          DCLog.d('DCCache 创建目录: $finalPath');
+        }
+      } else {
+        // web 平台：Hive 会自动使用 IndexedDB，不需要文件系统路径
+        DCLog.d('DCCache Web 平台，使用 IndexedDB 存储');
       }
 
-      // 确保目录存在
-      final dir = Directory(finalPath);
-      if (!await dir.exists()) {
-        await dir.create(recursive: true);
-        DCLog.d('DCCache 创建目录: $finalPath');
+      // 初始化 Hive
+      if (finalPath != null) {
+        Hive.init(finalPath);
+      } else {
+        // web 平台：不传路径，Hive 会自动使用 IndexedDB
+        Hive.init('');
       }
 
-      Hive.init(finalPath);
       _isInitialized = true;
-      DCLog.i('DCCache 初始化成功，路径: $finalPath');
+      DCLog.i('DCCache 初始化成功，路径: ${finalPath ?? "Web IndexedDB"}');
 
       // 自动打开默认 Box，方便后续使用
       await _openBox();

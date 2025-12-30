@@ -4,6 +4,10 @@
     "builds": [],
     "routes": [
         {
+            "src": "/",
+            "dest": "web/index.html"
+        },
+        {
             "src": "/main/list",
             "dest": "assets/json/eat/eat_main.json"
         },
