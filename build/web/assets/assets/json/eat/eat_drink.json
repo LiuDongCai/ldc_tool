@@ -1,0 +1,281 @@
+[
+    {
+        "id": 1001,
+        "name": "BENCHCAFE·板凳咖啡",
+        "image": "http://p0.meituan.net/biztone/62b474545760df9983f148c5a4a974ff520359.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            18
+        ],
+        "great_food": "椰青美式",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            1,
+            2
+        ],
+        "score": 4.5,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1002,
+        "name": "瑞幸咖啡",
+        "image": "https://img.meituan.net/content/19b01782ff213e777e28b847fc4647eb28602.png%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "score": 4.4,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1003,
+        "name": "库迪咖啡",
+        "image": "https://img.meituan.net/content/7d92e59206aba84c750a529d446a9bb773517.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            1
+        ],
+        "score": 4.3,
+        "url": "",
+        "remark": "偶尔有些门店有返现"
+    },
+    {
+        "id": 1004,
+        "name": "NOWWA挪瓦咖啡",
+        "image": "https://img.meituan.net/content/54e1ad6354cbecaf676a73663a2d766633038.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            1
+        ],
+        "score": 4.1,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1005,
+        "name": "有戏新潮茶",
+        "image": "http://p1.meituan.net/biztone/a919e73487c3e7689f00ae0f2ea50c57213367.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~25元",
+        "cashback": [
+            1
+        ],
+        "score": 4.2,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1006,
+        "name": "陶鸢茗叙",
+        "image": "https://p0.meituan.net/biztone/b4a6af752e41516d429c147787ddd8fa353192.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~20元",
+        "cashback": [
+            1
+        ],
+        "score": 4.2,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1007,
+        "name": "蜜雪冰城",
+        "image": "https://img.meituan.net/content/19fb71b909bccfac82474346d4c43db3114042.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "5~20元",
+        "cashback": [
+            1
+        ],
+        "score": 4.2,
+        "url": "",
+        "remark": "偶尔有些门店有返现"
+    },
+    {
+        "id": 1008,
+        "name": "柠季·手打柠檬茶",
+        "image": "https://img.meituan.net/content/60b2d5b967270a34ec957cc59fc81f01330471.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            1
+        ],
+        "score": 4.2,
+        "url": "",
+        "remark": "偶尔有些门店有返现"
+    },
+    {
+        "id": 1009,
+        "name": "奈雪的茶",
+        "image": "https://img.meituan.net/content/8462ce42f83b887b436ba4483eb4caaa351995.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~25元",
+        "cashback": [
+            -1
+        ],
+        "score": 4.4,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1010,
+        "name": "喜茶",
+        "image": "https://img.meituan.net/content/69d7dcdf88489e385efb0a2e56c2d3cb34240.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~25元",
+        "cashback": [
+            -1
+        ],
+        "score": 4.4,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1011,
+        "name": "古茗",
+        "image": "https://img.meituan.net/content/bbb1176951bbaf512431c9b6d19b26cf51982.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            -1
+        ],
+        "score": 4.2,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1012,
+        "name": "Tims天好咖啡·贝果·暖食",
+        "image": "https://img.meituan.net/content/a0529a98d0804644630abaa70103ae82104736.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            -1
+        ],
+        "score": 4.2,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1013,
+        "name": "爷爷不泡茶",
+        "image": "https://img.meituan.net/content/b9fdaacb3e3861ffbdd1ef772628aa09303462.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            2
+        ],
+        "score": 4.3,
+        "url": "",
+        "remark": "偶尔有些门店有返现"
+    },
+    {
+        "id": 1014,
+        "name": "霸王茶姬",
+        "image": "https://img.meituan.net/content/06050416ffdd746a08213fa518247b43119064.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            2
+        ],
+        "score": 4.5,
+        "url": "",
+        "remark": "偶尔有些门店有返现"
+    },
+    {
+        "id": 1015,
+        "name": "茉莉奶白",
+        "image": "https://img.meituan.net/content/cbd196c51f12ae87fd1924908e46cf4d25768.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            2
+        ],
+        "score": 4.3,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1016,
+        "name": "LINLEE林里·手打柠檬茶",
+        "image": "https://img.meituan.net/content/09981a46439a2e250443affff8d1b9e2351687.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            18
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "10~20元",
+        "cashback": [
+            -1
+        ],
+        "score": 4.4,
+        "url": "",
+        "remark": ""
+    }
+]

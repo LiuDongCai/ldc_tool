@@ -1,0 +1,94 @@
+[
+    {
+        "id": 2001,
+        "name": "面包新语",
+        "image": "http://p1.meituan.net/biztone/486d5ad415c871c41722799de0fb5354125597.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            17
+        ],
+        "great_food": "新疆黄金提子吐司",
+        "bad_food": "",
+        "price": "20~40元",
+        "score": 4.4,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 2002,
+        "name": "卡玛王子",
+        "image": "https://img.meituan.net/content/f4b6ca1bd541a28649e6e5b5cd684768162814.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            1,
+            2,
+            5,
+            6,
+            9
+        ],
+        "type": [
+            17
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~40元",
+        "score": 4.6,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 2003,
+        "name": "泸溪河桃酥",
+        "image": "https://img.meituan.net/content/27a9df70857077d033f2d7d579f7889135988.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            17
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~40元",
+        "score": 4.5,
+        "cashback": [
+            2
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 2004,
+        "name": "御蝶坊KNAC",
+        "image": "https://img.meituan.net/content/f8cbe63985b8896501e136d1d1928b1b108136.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            17
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~40元",
+        "score": 4.3,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 2005,
+        "name": "象山酥院",
+        "image": "https://img.meituan.net/content/c508362f6543060d6984581634e207b1667132.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            17
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~40元",
+        "score": 4.4,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    }
+]

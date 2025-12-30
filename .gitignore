@@ -32,7 +32,6 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
 
 # Symbolication related
 app.*.symbols
@@ -134,7 +133,10 @@ Runner/
 # Flutter/Dart/Pub related
 **/generated_plugin_registrant.dart
 .packages
-build/
+# build/web 不混淆，因为需要打包成 web 包
+# 其他 build/ 都混淆
+build/*
+!build/web/
 flutter_*.png
 linked_*.ds
 unlinked.ds

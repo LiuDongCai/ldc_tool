@@ -1,0 +1,804 @@
+[
+    {
+        "id": 1,
+        "name": "小辣椒",
+        "image": "http://p0.meituan.net/biztone/af506d5cab1b02b4922cf90d71e7eb4d342446.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            5
+        ],
+        "great_food": "干烧山塘鲫鱼",
+        "bad_food": "",
+        "price": "20~30元",
+        "cashback": [
+            1
+        ],
+        "score": 4.5,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 2,
+        "name": "点都德",
+        "image": "https://img.meituan.net/content/7f5e12a73c09bbb20778f8bfdbb1a3c046474.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            1
+        ],
+        "great_food": "红米肠",
+        "bad_food": "",
+        "price": "30~40元",
+        "cashback": [
+            2
+        ],
+        "score": 4.3,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 3,
+        "name": "探唐烧烤",
+        "image": "https://img.meituan.net/content/e4433bd07da7895967892845a95ef57f288628.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            4
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "30元以上",
+        "cashback": [
+            1
+        ],
+        "score": 4.4,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 4,
+        "name": "汕头辉记肠粉王",
+        "image": "http://p0.meituan.net/biztone/1637568252_1680848959436.jpeg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            3,
+            13
+        ],
+        "great_food": "肠粉、白切粉肠、猪肚汤",
+        "bad_food": "",
+        "price": "30~40元",
+        "cashback": [
+            1
+        ],
+        "score": 4.6,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 5,
+        "name": "王美飞茶餐厅",
+        "image": "https://p1.meituan.net/horusaigcgenimg/b664f04c3cba1ea8adea38690460b5632719354.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            1,
+            4,
+            6
+        ],
+        "type": [
+            1,
+            14
+        ],
+        "great_food": "阿飞诚实饭、咖喱鸡扒饭",
+        "bad_food": "",
+        "price": "20~25元",
+        "score": 4.8,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": "最好吃的茶餐厅"
+    },
+    {
+        "id": 6,
+        "name": "味千拉面",
+        "image": "https://img.meituan.net/content/f1caa938a706ab4d9fcfbd155eb283c4140042.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            9
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "25~40元",
+        "score": 4.6,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 7,
+        "name": "郑千白切",
+        "image": "http://p0.meituan.net/biztone/d9f9af2835db282ed3bad56b3e57a07293920.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            1,
+            14
+        ],
+        "great_food": "白切牛肋条饭",
+        "bad_food": "",
+        "price": "25~35元",
+        "score": 4.9,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 8,
+        "name": "罗爸爸·猪油炒小菜",
+        "image": "http://p0.meituan.net/biztone/d581269343d3003fa0f86de1e574821e334040.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            4,
+            7
+        ],
+        "type": [
+            5
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~25元",
+        "score": 4.3,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": "价格不贵，分量一般"
+    },
+    {
+        "id": 9,
+        "name": "金盏盏·客家3道菜",
+        "image": "https://img.meituan.net/content/b0acf2c064c155bf219e753685f2f785105787.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            3,
+            5
+        ],
+        "type": [
+            2
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "25~30元",
+        "score": 4.5,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 10,
+        "name": "春熙桥·成都砂锅食堂",
+        "image": "https://img.meituan.net/content/100157f2991d6d416b4e00ce9cf961e9134327.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            5
+        ],
+        "type": [
+            5
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~30元",
+        "score": 4.6,
+        "cashback": [
+            1,
+            2
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 11,
+        "name": "陈火火重庆麻辣烫",
+        "image": "https://img.meituan.net/content/49b3395d91ee6bcf70aa64194a84f62b913100.png%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            16
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~25元",
+        "score": 4.1,
+        "cashback": [
+            2
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 12,
+        "name": "美锅王麻辣香锅",
+        "image": "http://p0.meituan.net/biztone/6fa93d90b1bddc7961507273730c2df3976588.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            16
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~25元",
+        "score": 4.2,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 13,
+        "name": "湘聚园·湖南菜",
+        "image": "https://img.meituan.net/content/a7cb61054ce5efc75b235f4476f2b051100384.png%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            5
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~25元",
+        "score": 4.2,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 14,
+        "name": "乡里王子",
+        "image": "http://p1.meituan.net/biztone/1830588507_1622514351170.jpeg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            3
+        ],
+        "type": [
+            5
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~25元",
+        "score": 4.3,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 15,
+        "name": "歌志轩·名古屋拌面",
+        "image": "https://img.meituan.net/content/6cc1ed261969df0c77cf5f2e76cd8d30261411.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            9
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "25~40元",
+        "score": 4.4,
+        "cashback": [
+            1,
+            2
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 16,
+        "name": "肖三胖湖南土菜",
+        "image": "https://img.meituan.net/content/4e5fe93df8b956256d3fda91e4e2d996241651.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            5
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~30元",
+        "score": 4.5,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 17,
+        "name": "顺记鱼仔",
+        "image": "https://img.meituan.net/content/946a3275def437fc918fa387fa9f3bc9183377.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            1,
+            3
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~30元",
+        "score": 4.5,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 18,
+        "name": "啫火啫啫煲",
+        "image": "http://p0.meituan.net/biztone/2badbe6111d75892805e93068f00c586765186.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            1
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~30元",
+        "score": 4.5,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 19,
+        "name": "潮粿客",
+        "image": "https://p0.meituan.net/biztone/655af74052254c00d6e4767a705f8322410896.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            1,
+            2
+        ],
+        "type": [
+            3,
+            13
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~25元",
+        "score": 4.1,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 20,
+        "name": "潮溪肴",
+        "image": "http://p0.meituan.net/biztone/d1ad9e59ceb1b3661a7ce2c74547cf30454500.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            1
+        ],
+        "type": [
+            3,
+            13
+        ],
+        "great_food": "潮汕柯饭",
+        "bad_food": "",
+        "price": "20~30元",
+        "score": 4.8,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 21,
+        "name": "农耕记·湖南土菜",
+        "image": "https://img.meituan.net/content/7d8be02f4934e4d0590a5adbbbd10c51394295.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            5
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~35元",
+        "cashback": [
+            1,
+            2
+        ],
+        "score": 4.4,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 22,
+        "name": "醒目茶餐厅",
+        "image": "http://p0.meituan.net/biztone/1255954939_1680860300283.jpeg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            3
+        ],
+        "type": [
+            1,
+            14
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "25~35元",
+        "cashback": [
+            1
+        ],
+        "score": 4.5,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 23,
+        "name": "舞辣辣·川味小馆",
+        "image": "https://img.meituan.net/content/0808975578def284a9e7dc9ae8ce02eb588146.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            3
+        ],
+        "type": [
+            5
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "25~35元",
+        "score": 4.3,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 24,
+        "name": "老顾客煲仔饭",
+        "image": "http://p0.meituan.net/merchant/2d10686eb702bf20a9c24fde4aaa186d39044.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            1,
+            3
+        ],
+        "type": [
+            1,
+            14
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~25元",
+        "score": 5.0,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 25,
+        "name": "湘田田·湖南土菜",
+        "image": "https://img.meituan.net/content/af3e2b05aa2e2b88b34335d1d1eaf99c115836.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            1
+        ],
+        "type": [
+            5
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~35元",
+        "score": 4.3,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 26,
+        "name": "河粉先生",
+        "image": "http://p1.meituan.net/biztone/79666b620dcf8445c86cecf7e24da9ac1105222.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            1,
+            2,
+            3,
+            5,
+            6
+        ],
+        "type": [
+            6,
+            13
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~40元",
+        "cashback": [
+            1,
+            2
+        ],
+        "score": 4.6,
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 27,
+        "name": "老乡鸡",
+        "image": "https://img.meituan.net/content/7bff188006f0df31ba114bd8613a1f3d215855.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            14
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~40元",
+        "score": 4.3,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 28,
+        "name": "木棉·醉心粤味",
+        "image": "https://img.meituan.net/content/159a37b35396e0fed02a0b09fdfac33c323607.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            1
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "25~40元",
+        "score": 4.5,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 29,
+        "name": "海底捞·下饭火锅菜",
+        "image": "https://img.meituan.net/content/4bafdad95b2645d2ab060bd2342f92ea102907.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            6
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~35元",
+        "score": 4.6,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 30,
+        "name": "汉堡王",
+        "image": "https://img.meituan.net/content/6876e53766e00eb67fe2b842a2485922177922.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            15
+        ],
+        "great_food": "王道椒香鸡腿",
+        "bad_food": "",
+        "price": "20~35元",
+        "score": 4.5,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 31,
+        "name": "麦当劳",
+        "image": "https://img.meituan.net/content/36f663104ac868120e0e6fbff7ea113b160847.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            15
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~35元",
+        "score": 4.4,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 32,
+        "name": "肯德基",
+        "image": "https://img.meituan.net/content/a87880de8df558315b665c9aff305c73104587.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            15
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~35元",
+        "score": 4.4,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 33,
+        "name": "艾薯夫妇Aysh",
+        "image": "http://p0.meituan.net/bbia/b963402dfd35853fa99f444afee72bbc111347.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            15
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "30~50元",
+        "score": 4.5,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 34,
+        "name": "萨莉亚意式餐厅",
+        "image": "https://img.meituan.net/content/9c8ed1c2e3e4114c6330663b306749a976516.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            11,
+            15
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "25~40元",
+        "score": 4.4,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 35,
+        "name": "绿茶餐厅",
+        "image": "https://img.meituan.net/content/b2c9b02e5640d69d4fb51ac1f9c94eda51624.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            7
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~30元",
+        "score": 4.5,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 36,
+        "name": "外婆家",
+        "image": "https://img.meituan.net/content/dfcd8a33a2772609ce3edff320119885174741.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            4,
+            5
+        ],
+        "type": [
+            7
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~25元",
+        "score": 4.4,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 37,
+        "name": "清晖小苑",
+        "image": "https://img.meituan.net/content/3d850ec85dde28ec6ad6be17131c0278231449.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "type": [
+            1
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~30元",
+        "score": 4.4,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 38,
+        "name": "霸碗盖码饭",
+        "image": "https://img.meituan.net/content/aad840b7c5e76f524112ed1b31ee8df6336813.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            14
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~20元",
+        "score": 4.2,
+        "cashback": [
+            1,
+            2
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 39,
+        "name": "浔味客家",
+        "image": "https://img.meituan.net/content/2c5a3293d584dece954e66bfb2b3b9ff536132.jpg%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2,
+            5
+        ],
+        "type": [
+            2
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~25元",
+        "score": 4.4,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 40,
+        "name": "龙发鸡煲",
+        "image": "https://img.meituan.net/content/69917663d8fd1f6fec35e88fcf518964547791.png%40300w_1e_1l%7Cwatermark%3D0.webp",
+        "type": [
+            1
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "25~40元",
+        "score": 4.6,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 41,
+        "name": "强记捆粄店",
+        "image": "http://p0.meituan.net/poipicadd/00cbcc706c6700f92bc17f867366fe96407593.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            2
+        ],
+        "type": [
+            2,
+            15
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "20~30元",
+        "score": 4.5,
+        "cashback": [
+            -1
+        ],
+        "url": "",
+        "remark": ""
+    }
+]
