@@ -34,7 +34,6 @@
             ]
         }
     ],
-    "outputDirectory": "build/web",
     "routes": [
         {
             "src": "/",
