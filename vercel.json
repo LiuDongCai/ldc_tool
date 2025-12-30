@@ -1,15 +1,7 @@
 {
     "version": 2,
     "public": false,
-    "builds": [
-        {
-            "src": "**/*.dart",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "build/web"
-            }
-        }
-    ],
+    "builds": [],
     "routes": [
         {
             "src": "/",
