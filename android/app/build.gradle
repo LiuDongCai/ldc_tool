@@ -38,6 +38,10 @@ android {
     namespace "com.ldc.ldc_tool"
     compileSdkVersion 36
 
+    buildFeatures {
+        buildConfig true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -72,6 +76,20 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            buildConfigField("boolean", "showConsole", "false")
+        }
+
+        profile {
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            signingConfig signingConfigs.release
+            buildConfigField("boolean", "showConsole", "true")
+        }
+
+        debug {
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            signingConfig signingConfigs.release
+            buildConfigField("boolean", "showConsole", "true")
         }
     }
 }

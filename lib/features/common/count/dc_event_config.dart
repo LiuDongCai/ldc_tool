@@ -1,6 +1,6 @@
 class DCEventParams {
   /// 名称
-  static const String name = 'names';
+  static const String name = 'name';
 
   /// 评分
   static const String score = 'score';
