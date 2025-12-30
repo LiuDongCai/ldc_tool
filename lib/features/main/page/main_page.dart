@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/features/eat/page/eat_page.dart';
+import 'package:ldc_tool/features/home/helper/main_logic_helper.dart';
 import 'package:ldc_tool/features/main/logic/main_logic.dart';
 import 'package:ldc_tool/features/main/header/main_header.dart';
 import 'package:ldc_tool/features/home/page/home_page.dart';
@@ -21,7 +22,10 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
   MainState get state => logic.state;
 
   @override
-  MainLogic dcInitLogic() => MainLogic();
+  MainLogic dcInitLogic() => MainLogicHelper.instance.logic;
+
+  @override
+  String dcCustomLogicTag() => MainLogicHelper.instance.logicTag;
 
   @override
   Widget dcBuildBody(BuildContext context) {
@@ -60,11 +64,31 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
                 break;
               case MainBottomNavigationBarType.tool:
                 // 工具
-                resultWidget = Container();
+                resultWidget = Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '待开发...',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      color: DCColors.dcFF8000,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
                 break;
               case MainBottomNavigationBarType.mine:
                 // 我的
-                resultWidget = Container();
+                resultWidget = Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '待开发...',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      color: DCColors.dcFF8000,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
                 break;
             }
             resultWidget = AnnotatedRegion<SystemUiOverlayStyle>(
