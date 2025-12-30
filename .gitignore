@@ -129,6 +129,7 @@ coverage/
 !/dev/ci/**/Gemfile.lock
 .fvm/flutter_sdk
 .fvm/fvm_config.json
+Runner/
 
 # Flutter/Dart/Pub related
 **/generated_plugin_registrant.dart
