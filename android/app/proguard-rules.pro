@@ -53,3 +53,17 @@
 -keep class java.util.concurrent.Executors { *; }
 -keep class org.chromium.net.** { *; }
 -keep class io.flutter.plugins.cronet_http.UrlRequestCallbackProxy { *; }
+
+-dontwarn com.google.firebase.perf.network.**
+-keepclassmembers class * extends com.google.android.gms.internal.firebase-perf.zzbz {
+  <fields>;
+}
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzzs {
+  <fields>;
+}
+-dontwarn com.google.firebase.components.Component$Instantiation
+-keep public class com.google.firebase.* {*;}
+
+-keepclassmembers class com.google.android.gms.common.api.internal.BasePendingResult {
+  com.google.android.gms.common.api.internal.BasePendingResult$ReleasableResultGuardian mResultGuardian;
+}
