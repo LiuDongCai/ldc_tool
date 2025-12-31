@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
+import 'package:ldc_tool/common/extension/dc_date_extension.dart';
 import 'package:ldc_tool/common/util/dc_keyboard_tool.dart';
 import 'package:ldc_tool/common/widgets/toast/dc_toast.dart';
 import 'package:ldc_tool/features/common/count/dc_event_config.dart';
@@ -261,12 +262,12 @@ class _EatListFeedbackDialogState extends State<EatListFeedbackDialog> {
           return;
         }
         // 统计事件
-        DCEventCount.countEvent(
+        DCEventCount.doSendGACount(
           DCEventName.eatNameFeedback,
-          params: {
+          {
             DCEventParams.name: eatName,
             DCEventParams.score: _score,
-            DCEventParams.submitTime: DateTime.now().millisecondsSinceEpoch,
+            DCEventParams.submitTime: DateTime.now().toLocal().formatter(format: 'yyyy-MM-dd HH:mm:ss'),
           },
         );
         DCToast.show(message: '提交成功');

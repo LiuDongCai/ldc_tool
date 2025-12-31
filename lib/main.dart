@@ -5,14 +5,20 @@ import 'package:ldc_tool/base/cache/dc_cache.dart';
 import 'package:ldc_tool/base/network/dc_network.dart';
 import 'package:ldc_tool/common/util/dc_tool.dart';
 import 'package:ldc_tool/features/common/router/dc_router_config.dart';
+import 'package:ldc_tool/firebase_options.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:umeng_common_sdk/umeng_common_sdk.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   // 确保 WidgetsFlutterBinding 初始化
   WidgetsFlutterBinding.ensureInitialized();
   // 初始化缓存（不传 path 参数，自动使用应用文档目录）
   await DCCache.instance.init();
+
+  // 初始化firebase统计
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // 启动应用
   runApp(const MyApp());
@@ -29,14 +35,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    // 初始化友盟统计
-    UmengCommonSdk.initCommon(
-      '694e2ae78560e3487211e59f', // 友盟统计Android AppKey
-      '694e2e9d8560e3487211e89c', // 友盟统计iOS AppKey
-      'Umeng',
-    );
-    UmengCommonSdk.setPageCollectionModeManual();
-
     // 初始化网络请求
     DCNetwork.instance.init(
       connectTimeout: 30000,
