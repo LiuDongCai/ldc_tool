@@ -37,7 +37,7 @@ class EatHelper {
 
     // 如果网络获取失败，则从本地获取
     final jsonString =
-        await rootBundle.loadString('assets/json/eat/eat_main.json');
+        await rootBundle.loadString('build/web/json/eat_main.json');
     final eatList = jsonDecode(jsonString);
     if (eatList is List) {
       final eatMainList = eatList.map((e) => EatModel.fromJson(e)).toList();
@@ -68,7 +68,7 @@ class EatHelper {
 
     // 如果网络获取失败，则从本地获取
     final jsonString =
-        await rootBundle.loadString('assets/json/eat/eat_drink.json');
+        await rootBundle.loadString('build/web/json/eat_drink.json');
     final eatList = jsonDecode(jsonString);
     if (eatList is List) {
       final eatDrinkList = eatList.map((e) => EatModel.fromJson(e)).toList();
@@ -100,7 +100,7 @@ class EatHelper {
 
     // 如果网络获取失败，则从本地获取
     final jsonString =
-        await rootBundle.loadString('assets/json/eat/eat_dessert.json');
+        await rootBundle.loadString('build/web/json/eat_dessert.json');
     final eatList = jsonDecode(jsonString);
     if (eatList is List) {
       final eatDessertList = eatList.map((e) => EatModel.fromJson(e)).toList();

@@ -121,6 +121,6 @@ flutter:
     - assets/image/eat/
     - assets/image/eat_list/
     - assets/image/home/
-    - assets/json/eat/eat_main.json
-    - assets/json/eat/eat_drink.json
-    - assets/json/eat/eat_dessert.json
+    - build/web/json/eat_main.json
+    - build/web/json/eat_drink.json
+    - build/web/json/eat_dessert.json
