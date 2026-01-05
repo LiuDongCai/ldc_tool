@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import 'package:ldc_tool/features/eat/page/eat_page.dart';
+import 'package:ldc_tool/features/eat_cook_random/page/eat_cook_random_page.dart';
 import 'package:ldc_tool/features/eat_list/page/eat_list_page.dart';
 import 'package:ldc_tool/features/eat_random/page/eat_random_page.dart';
+import 'package:ldc_tool/features/game/page/game_page.dart';
 import 'package:ldc_tool/features/home/page/home_page.dart';
 import 'package:ldc_tool/features/main/page/main_page.dart';
 
@@ -16,6 +18,10 @@ final router = [
     page: () => const HomePage(),
   ),
   GetPage(
+    name: DCPages.game,
+    page: () => const GamePage(),
+  ),
+  GetPage(
     name: DCPages.eat,
     page: () => const EatPage(),
   ),
@@ -27,14 +33,21 @@ final router = [
     name: DCPages.eatRandom,
     page: () => const EatRandomPage(),
   ),
+  GetPage(
+    name: DCPages.eatCookRandom,
+    page: () => const EatCookRandomPage(),
+  ),
 ];
 
 class DCPages {
-  /// 主页
+  /// APP主页
   static const String main = '/main';
 
   /// 首页
   static const String home = '/main/home';
+
+  /// 游戏
+  static const String game = '/main/game';
 
   /// 点餐
   static const String eat = '/main/eat';
@@ -44,4 +57,7 @@ class DCPages {
 
   /// 随机点餐
   static const String eatRandom = '/main/eat_random';
+
+  /// 家常菜随机点菜
+  static const String eatCookRandom = '/main/eat_cook_random';
 }

@@ -1,0 +1,81 @@
+[
+    {
+        "id": 1,
+        "name": "干锅花菜",
+        "image": "https://i2.chuimg.com/8baa0cce97cf454f983c31ffa5fdf067_1280w_1570h.jpg?imageView2/1/w/640/h/520/q/75/format/jpg",
+        "ingredients": [
+            {
+                "name": "花菜",
+                "amount": "半个"
+            },
+            {
+                "name": "干辣椒",
+                "amount": "4-6个"
+            },
+            {
+                "name": "五花肉",
+                "amount": "200g"
+            },
+            {
+                "name": "生抽",
+                "amount": "1勺"
+            },
+            {
+                "name": "盐",
+                "amount": "适量"
+            },
+            {
+                "name": "鸡精",
+                "amount": "四分之一勺"
+            },
+            {
+                "name": "豆瓣酱",
+                "amount": "1勺"
+            },
+            {
+                "name": "耗油",
+                "amount": "1勺"
+            },
+            {
+                "name": "蒸鱼豉油",
+                "amount": "半勺"
+            },
+            {
+                "name": "韭菜",
+                "amount": "100g"
+            },
+            {
+                "name": "孜然粉",
+                "amount": "三分之一勺"
+            }
+        ],
+        "step": [
+            {
+                "image": "https://i2.chuimg.com/8a296319af81478e9d298e3c7cc3d176_1280w_1250h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "准备一颗花菜洗净，切掉根部"
+            },
+            {
+                "image": "https://i2.chuimg.com/0b60d3faa78f403da3b678e98719110e_1184w_2560h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "准备一个小碗。分别倒入一勺豆瓣酱，一勺蚝油，一勺生抽，半勺蒸鱼豉油，再加入一点鸡精。搅匀备用。"
+            },
+            {
+                "image": "https://i2.chuimg.com/272e4c37341545ba8cdd730ff0138d8d_1280w_1393h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "锅中倒入五花肉，慢慢煸炒炒出油脂出来。"
+            },
+            {
+                "image": "https://i2.chuimg.com/8dbd6173df7f467ab3553e6aaffcc051_1280w_1378h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "再倒入干辣椒和蒜末 炒出香味"
+            },
+            {
+                "image": "https://i2.chuimg.com/73537ef41724466c9091889a40202750_1280w_1464h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "最后倒入花菜和刚刚调好的料汁继续翻炒至花菜炒熟。中间如果干了可以少量多次加适量水。"
+            },
+            {
+                "image": "https://i2.chuimg.com/55196bfd5e1545b399ca1ed0641d54ce_1280w_1570h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "快熟时加入点韭菜或者大蒜叶都可以。然后撒点孜然粉和适量盐 翻炒后就可以出锅啦。"
+            }
+        ],
+        "url": "",
+        "remark": ""
+    }
+]

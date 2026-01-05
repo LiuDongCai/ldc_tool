@@ -13,7 +13,7 @@ class MainState {
   List<MainBottomNavigationBarType> bottomNavigationBarTypeList = [
     MainBottomNavigationBarType.home,
     MainBottomNavigationBarType.eat,
-    MainBottomNavigationBarType.tool,
+    MainBottomNavigationBarType.game,
     MainBottomNavigationBarType.mine,
   ];
 
@@ -21,7 +21,7 @@ class MainState {
   Map<MainBottomNavigationBarType, GlobalKey> globalKeys = {
     MainBottomNavigationBarType.home: GlobalKey(),
     MainBottomNavigationBarType.eat: GlobalKey(),
-    MainBottomNavigationBarType.tool: GlobalKey(),
+    MainBottomNavigationBarType.game: GlobalKey(),
     MainBottomNavigationBarType.mine: GlobalKey(),
   };
 

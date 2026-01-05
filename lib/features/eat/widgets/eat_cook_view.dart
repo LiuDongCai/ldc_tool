@@ -4,16 +4,16 @@ import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/features/eat/header/eat_header.dart';
 import 'package:ldc_tool/features/eat/state/eat_state.dart';
 
-/// 随机点餐
-class EatRandomView extends StatefulWidget {
-  const EatRandomView({super.key});
+/// 家常菜
+class EatCookView extends StatefulWidget {
+  const EatCookView({super.key});
 
   @override
-  State<EatRandomView> createState() => _EatRandomViewState();
+  State<EatCookView> createState() => _EatCookViewState();
 }
 
-class _EatRandomViewState extends State<EatRandomView>
-    with EatLogicConsumerMixin<EatRandomView> {
+class _EatCookViewState extends State<EatCookView>
+    with EatLogicConsumerMixin<EatCookView> {
   EatState get state => logic.state;
 
   @override
@@ -21,10 +21,11 @@ class _EatRandomViewState extends State<EatRandomView>
     Widget resultWidget = Column(
       children: [
         _buildTitle(),
-        _buildRandomButton(),
+        _buildCookButton(),
       ],
     );
     resultWidget = Container(
+      alignment: Alignment.center,
       margin: EdgeInsets.only(
         top: 16.w,
         left: 16.w,
@@ -38,7 +39,7 @@ class _EatRandomViewState extends State<EatRandomView>
   /// 标题
   Widget _buildTitle() {
     return Text(
-      '不想选择？我来帮你！',
+      '点菜点菜！！！',
       style: TextStyle(
         fontSize: 16.sp,
         color: DCColors.dc333333,
@@ -47,10 +48,10 @@ class _EatRandomViewState extends State<EatRandomView>
     );
   }
 
-  /// 去随机点餐按钮
-  Widget _buildRandomButton() {
+  /// 按钮
+  Widget _buildCookButton() {
     Widget resultWidget = Text(
-      '随机点餐',
+      '开始点菜',
       style: TextStyle(
         fontSize: 16.sp,
         color: DCColors.dcFFFFFF,
@@ -58,7 +59,7 @@ class _EatRandomViewState extends State<EatRandomView>
       ),
     );
     resultWidget = Container(
-      width: 230.w,
+      width: 200.w,
       height: 44.w,
       margin: EdgeInsets.only(
         top: 16.w,
@@ -73,9 +74,7 @@ class _EatRandomViewState extends State<EatRandomView>
     );
     resultWidget = GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: () {
-        logic.handleRandomClick();
-      },
+      onTap: logic.handleCookRandomClick,
       child: resultWidget,
     );
     return resultWidget;

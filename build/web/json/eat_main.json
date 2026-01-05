@@ -800,5 +800,26 @@
         ],
         "url": "",
         "remark": ""
+    },
+    {
+        "id": 42,
+        "name": "辣汀·重庆香锅",
+        "image": "http://p1.meituan.net/biztone/5d138d96adb54107a270c9f0a5f6d506426041.jpg%40750w_1e_1l%7Cwatermark%3D0.webp",
+        "section": [
+            1,
+            2
+        ],
+        "type": [
+            16
+        ],
+        "great_food": "",
+        "bad_food": "",
+        "price": "15~20元",
+        "score": 4.4,
+        "cashback": [
+            1
+        ],
+        "url": "",
+        "remark": ""
     }
 ]

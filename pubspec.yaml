@@ -124,3 +124,5 @@ flutter:
     - build/web/json/eat_main.json
     - build/web/json/eat_drink.json
     - build/web/json/eat_dessert.json
+    - build/web/json/eat_cook_main.json
+    - build/web/json/eat_cook_soup.json

@@ -7,6 +7,7 @@ class DCColors {
   static const Color dcFFFFFF = Color(0xFFFFFFFF);
   static const Color dcFF8000 = Color(0xFFFF8000);
   static const Color dc00000000 = Color(0x00000000);
+  static const Color dcCCCCCC = Color(0xFFCCCCCC);
   static const Color dc999999 = Color(0xFF999999);
   static const Color dc666666 = Color(0xFF666666);
   static const Color dc333333 = Color(0xFF333333);

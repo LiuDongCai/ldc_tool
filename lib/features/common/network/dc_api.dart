@@ -10,4 +10,10 @@ class DCApi {
 
   /// 甜点列表
   static const String eatDessertList = '$baseUrl/json/eat_dessert.json';
+
+  /// 家常菜列表
+  static const String eatCookMainList = '$baseUrl/json/eat_cook_main.json';
+
+  /// 家常菜汤列表
+  static const String eatCookSoupList = '$baseUrl/json/eat_cook_soup.json';
 }

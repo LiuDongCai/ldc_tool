@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
 import 'package:ldc_tool/features/eat/page/eat_page.dart';
+import 'package:ldc_tool/features/game/page/game_page.dart';
 import 'package:ldc_tool/features/home/helper/main_logic_helper.dart';
 import 'package:ldc_tool/features/main/logic/main_logic.dart';
 import 'package:ldc_tool/features/main/header/main_header.dart';
@@ -62,19 +63,9 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
                 // 点餐
                 resultWidget = EatPage(key: globalKey);
                 break;
-              case MainBottomNavigationBarType.tool:
-                // 工具
-                resultWidget = Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '待开发...',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: DCColors.dcFF8000,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                );
+              case MainBottomNavigationBarType.game:
+                // 游戏
+                resultWidget = GamePage(key: globalKey);
                 break;
               case MainBottomNavigationBarType.mine:
                 // 我的
@@ -137,8 +128,8 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
           label: '点餐',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.build),
-          label: '工具',
+          icon: Icon(Icons.sports_esports),
+          label: '游戏',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
@@ -156,7 +147,7 @@ class MainPageState extends State<MainPage> with MainLogicPutMixin<MainPage> {
         return DCColors.dcFF8000;
       case MainBottomNavigationBarType.eat:
         return DCColors.dc42CC8F;
-      case MainBottomNavigationBarType.tool:
+      case MainBottomNavigationBarType.game:
         return DCColors.dcFF8000;
       case MainBottomNavigationBarType.mine:
         return DCColors.dcFF8000;

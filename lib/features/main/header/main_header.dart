@@ -12,6 +12,6 @@ typedef MainLogicConsumerMixin<W extends StatefulWidget>
 enum MainBottomNavigationBarType {
   home,
   eat,
-  tool,
+  game,
   mine,
 }
