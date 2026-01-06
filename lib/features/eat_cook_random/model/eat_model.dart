@@ -25,11 +25,11 @@ class EatCookModel {
       }
     }
 
-    final List<Step>? step = json['step'] is List ? <Step>[] : null;
+    final List<CookStep>? step = json['step'] is List ? <CookStep>[] : null;
     if (step != null) {
       for (final dynamic item in json['step']!) {
         if (item != null) {
-          step.add(Step.fromJson(asT<Map<String, dynamic>>(item)!));
+          step.add(CookStep.fromJson(asT<Map<String, dynamic>>(item)!));
         }
       }
     }
@@ -48,7 +48,7 @@ class EatCookModel {
   String? name;
   String? image;
   List<Ingredients>? ingredients;
-  List<Step>? step;
+  List<CookStep>? step;
   String? url;
   String? remark;
 
@@ -93,13 +93,13 @@ class Ingredients {
       };
 }
 
-class Step {
-  Step({
+class CookStep {
+  CookStep({
     this.image,
     this.description,
   });
 
-  factory Step.fromJson(Map<String, dynamic> json) => Step(
+  factory CookStep.fromJson(Map<String, dynamic> json) => CookStep(
         image: asT<String?>(json['image']),
         description: asT<String?>(json['description']),
       );

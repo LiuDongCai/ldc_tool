@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ldc_tool/common/colors/dc_colors.dart';
+import 'package:ldc_tool/common/widgets/image/dc_cached_image.dart';
 import 'package:ldc_tool/features/eat_cook_random/header/eat_cook_random_header.dart';
 import 'package:ldc_tool/features/eat_cook_random/model/eat_model.dart';
 import 'package:ldc_tool/features/eat_cook_random/logic/eat_cook_random_logic.dart';
@@ -25,25 +26,27 @@ class EatCookRandomResultViewState extends State<EatCookRandomResultView>
   /// 励志话语
   List<String> get motivationalWords => state.motivationalWords;
 
+  /// 菜单item
+  EatCookModel? get randomResult => state.randomResult;
+
   @override
   Widget build(BuildContext context) {
     Widget resultWidget = GetBuilder<EatCookRandomLogic>(
       tag: logicTag,
       id: EatCookRandomUpdateId.randomResult,
       builder: (_) {
-        final randomResult = state.randomResult;
         if (randomResult == null) {
           return const SizedBox.shrink();
         }
-        return _buildResultWidget(randomResult);
+        return _buildResultWidget();
       },
     );
     return resultWidget;
   }
 
   /// 构建结果视图
-  Widget _buildResultWidget(EatCookModel model) {
-    Widget resultWidget = _buildCookItem(model);
+  Widget _buildResultWidget() {
+    Widget resultWidget = _buildCookItem();
     // 卡片布局
     resultWidget = Container(
       alignment: Alignment.center,
@@ -79,12 +82,59 @@ class EatCookRandomResultViewState extends State<EatCookRandomResultView>
       ),
       child: resultWidget,
     );
+    resultWidget = GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        logic.handleCookDetailClick(randomResult);
+      },
+      child: resultWidget,
+    );
     return resultWidget;
   }
 
   /// 菜单item
-  Widget _buildCookItem(EatCookModel model) {
-    return Text(model.name ?? '');
+  Widget _buildCookItem() {
+    Widget resultWidget = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildCover(),
+        SizedBox(width: 10.w),
+        Expanded(
+          child: _buildInfo(),
+        ),
+      ],
+    );
+    resultWidget = Container(
+      padding: EdgeInsets.all(10.w),
+      child: resultWidget,
+    );
+    return resultWidget;
+  }
+
+  /// 封面
+  Widget _buildCover() {
+    Widget resultWidget = DCCachedImage(
+      randomResult?.image ?? '',
+      width: 90.w,
+      height: 90.w,
+    );
+    resultWidget = ClipRRect(
+      borderRadius: BorderRadius.circular(8.w),
+      child: resultWidget,
+    );
+    return resultWidget;
+  }
+
+  /// 信息
+  Widget _buildInfo() {
+    return Text(
+      randomResult?.name ?? '',
+      style: TextStyle(
+        fontSize: 16.sp,
+        color: DCColors.dc333333,
+        fontWeight: FontWeight.w600,
+      ),
+    );
   }
 
   /// 构建结果类型
