@@ -6,6 +6,7 @@ class EatCookModel {
   EatCookModel({
     this.id,
     this.name,
+    this.description,
     this.image,
     this.ingredients,
     this.step,
@@ -36,6 +37,7 @@ class EatCookModel {
     return EatCookModel(
       id: asT<int?>(json['id']),
       name: asT<String?>(json['name']),
+      description: asT<String?>(json['description']),
       image: asT<String?>(json['image']),
       ingredients: ingredients,
       step: step,
@@ -46,6 +48,7 @@ class EatCookModel {
 
   int? id;
   String? name;
+  String? description;
   String? image;
   List<Ingredients>? ingredients;
   List<CookStep>? step;
@@ -60,6 +63,7 @@ class EatCookModel {
   Map<String, dynamic> toJson() => <String, dynamic>{
         'id': id,
         'name': name,
+        'description': description,
         'image': image,
         'ingredients': ingredients,
         'step': step,

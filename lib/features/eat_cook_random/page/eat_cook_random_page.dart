@@ -41,7 +41,9 @@ class EatCookRandomPageState extends State<EatCookRandomPage>
         children: [
           const EatCookRandomView(),
           SizedBox(height: 36.w),
-          const EatCookRandomResultView(),
+          const Expanded(
+            child: EatCookRandomResultView(),
+          ),
         ],
       ),
     );

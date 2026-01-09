@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:get/get.dart';
 import 'package:ldc_tool/base/router/dc_router.dart';
+import 'package:ldc_tool/common/util/dc_log.dart';
 import 'package:ldc_tool/features/common/router/dc_router_config.dart';
 import 'package:ldc_tool/features/eat_cook_random/header/eat_cook_random_header.dart';
 import 'package:ldc_tool/features/eat_cook_random/helper/eat_cook_helper.dart';
@@ -26,20 +27,44 @@ class EatCookRandomLogic extends GetxController {
   /// 处理随机点击
   Future<void> handleRandomClick() async {
     // 几菜几汤
-    // final selectedCookCount = state.cookCount;
-    // final selectedSoupCount = state.soupCount;
+    final selectedCookCount = state.cookCount;
+    final selectedSoupCount = state.soupCount;
 
     final cookMainList = await EatCookHelper.getCookMainList();
-    // final cookSoupList = await EatCookHelper.getCookSoupList();
+    final cookSoupList = await EatCookHelper.getCookSoupList();
 
-    // 随机选择几菜
-    final randomCookList =
-        cookMainList.elementAt(Random().nextInt(cookMainList.length));
-    // // 随机选择几汤
-    // final randomSoupList =
-    //     cookSoupList.elementAt(Random().nextInt(cookSoupList.length));
+    // 随机选择几个菜, 不能重复
+    final randomCookList = <EatCookModel>[];
+    for (var i = 0; i < selectedCookCount; i++) {
+      // 随机选择一个菜, 不能重复
+      final randomCook = cookMainList.elementAt(
+        Random().nextInt(cookMainList.length),
+      );
+      if (randomCookList.contains(randomCook)) {
+        i--;
+        continue;
+      }
+      randomCookList.add(randomCook);
+    }
 
-    state.randomResult = randomCookList;
+    // 随机选择几个汤, 不能重复
+    final randomSoupList = <EatCookModel>[];
+    for (var i = 0; i < selectedSoupCount; i++) {
+      // 随机选择一个汤, 不能重复
+      final randomSoup = cookSoupList.elementAt(
+        Random().nextInt(cookSoupList.length),
+      );
+      if (randomSoupList.contains(randomSoup)) {
+        i--;
+        continue;
+      }
+      randomSoupList.add(randomSoup);
+    }
+
+    state.randomResultList = [
+      ...randomCookList,
+      ...randomSoupList,
+    ];
     update([EatCookRandomUpdateId.randomResult]);
   }
 

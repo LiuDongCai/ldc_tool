@@ -1,78 +1,179 @@
 [
     {
-        "id": 1,
-        "name": "干锅花菜",
-        "image": "https://i2.chuimg.com/8baa0cce97cf454f983c31ffa5fdf067_1280w_1570h.jpg?imageView2/1/w/640/h/520/q/75/format/jpg",
+        "id": 1001,
+        "name": "玉米山药排骨汤",
+        "description": "汤汁鲜美，好喝又营养～",
+        "image": "https://i2.chuimg.com/8d7423c83655442ca4b5f6d54cbeb5d7_866w_866h.jpg?imageView2/1/w/640/h/520/q/75/format/jpg",
         "ingredients": [
             {
-                "name": "花菜",
-                "amount": "半个"
+                "name": "排骨",
+                "amount": "2斤"
             },
             {
-                "name": "干辣椒",
-                "amount": "4-6个"
+                "name": "山药",
+                "amount": "1根"
             },
             {
-                "name": "五花肉",
-                "amount": "200g"
+                "name": "胡萝卜",
+                "amount": "1根"
             },
             {
-                "name": "生抽",
+                "name": "玉米",
+                "amount": "2根"
+            },
+            {
+                "name": "料酒",
                 "amount": "1勺"
             },
             {
-                "name": "盐",
+                "name": "西洋参",
                 "amount": "适量"
             },
             {
-                "name": "鸡精",
-                "amount": "四分之一勺"
+                "name": "葱姜",
+                "amount": "适量"
             },
             {
-                "name": "豆瓣酱",
-                "amount": "1勺"
-            },
-            {
-                "name": "耗油",
-                "amount": "1勺"
-            },
-            {
-                "name": "蒸鱼豉油",
-                "amount": "半勺"
-            },
-            {
-                "name": "韭菜",
-                "amount": "100g"
-            },
-            {
-                "name": "孜然粉",
-                "amount": "三分之一勺"
+                "name": "盐",
+                "amount": "少许"
             }
         ],
         "step": [
             {
-                "image": "https://i2.chuimg.com/8a296319af81478e9d298e3c7cc3d176_1280w_1250h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
-                "description": "准备一颗花菜洗净，切掉根部"
+                "image": "https://i2.chuimg.com/88688e4841ec4644af8c85dca33d9f3f_866w_945h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "玉米剁块，胡萝卜切块，山药去皮切段"
             },
             {
-                "image": "https://i2.chuimg.com/0b60d3faa78f403da3b678e98719110e_1184w_2560h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
-                "description": "准备一个小碗。分别倒入一勺豆瓣酱，一勺蚝油，一勺生抽，半勺蒸鱼豉油，再加入一点鸡精。搅匀备用。"
+                "image": "https://i2.chuimg.com/172e73eb65774e8d804c7b17e086389b_866w_1000h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "排骨冷水下锅，加葱姜料酒水开煮三分钟 焯水备用"
             },
             {
-                "image": "https://i2.chuimg.com/272e4c37341545ba8cdd730ff0138d8d_1280w_1393h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
-                "description": "锅中倒入五花肉，慢慢煸炒炒出油脂出来。"
+                "image": "https://i2.chuimg.com/e7dd5bb4f1854407827fa1c6d5cf43a8_866w_866h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "锅中少许油热放葱姜排骨翻炒片刻，一次性加足水，所有食材一起放入锅中炖40分钟，加少许盐调味继续炖2分钟即可。"
+            }
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1002,
+        "name": "冬瓜肉丸汤",
+        "description": "浓香清爽、营养均衡、不油腻、喷香可口",
+        "image": "https://i2.chuimg.com/1bc87845b3e34749b2cf1cd9259d8e80_960w_1280h.jpg?imageView2/1/w/640/h/520/q/75/format/jpg",
+        "ingredients": [
+            {
+                "name": "冬瓜",
+                "amount": "600g"
             },
             {
-                "image": "https://i2.chuimg.com/8dbd6173df7f467ab3553e6aaffcc051_1280w_1378h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
-                "description": "再倒入干辣椒和蒜末 炒出香味"
+                "name": "猪肉丸",
+                "amount": "半斤"
             },
             {
-                "image": "https://i2.chuimg.com/73537ef41724466c9091889a40202750_1280w_1464h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
-                "description": "最后倒入花菜和刚刚调好的料汁继续翻炒至花菜炒熟。中间如果干了可以少量多次加适量水。"
+                "name": "食用油",
+                "amount": "适量"
             },
             {
-                "image": "https://i2.chuimg.com/55196bfd5e1545b399ca1ed0641d54ce_1280w_1570h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
-                "description": "快熟时加入点韭菜或者大蒜叶都可以。然后撒点孜然粉和适量盐 翻炒后就可以出锅啦。"
+                "name": "葱",
+                "amount": "1根"
+            },
+            {
+                "name": "香菜",
+                "amount": "1根"
+            }
+        ],
+        "step": [
+            {
+                "image": "https://i2.chuimg.com/8741068b32164bd28eff45472778e68f_1280w_960h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "备好所需食材"
+            },
+            {
+                "image": "https://i2.chuimg.com/b854334aba9a445ba723031201c4ff38_1280w_960h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "冬瓜切小块，葱和香菜切花"
+            },
+            {
+                "image": "https://i2.chuimg.com/903fbcdc506b4d04b0c619c90cd09544_960w_1280h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "水下锅煮开后放入丸子"
+            },
+            {
+                "image": "https://i2.chuimg.com/d51193eda6b449deb1c02ed86d5858cb_960w_1280h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "丸子煮到飘起来后放入冬瓜和油继续煮"
+            },
+            {
+                "image": "https://i2.chuimg.com/deb1892ef8df48a8a6588c39a88e4578_960w_1280h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "冬瓜煮熟后放入盐，葱和香菜就可以了，不喜欢香菜的可以放点芹菜，味道都挺好的，别放太多一点点就够"
+            }
+        ],
+        "url": "",
+        "remark": ""
+    },
+    {
+        "id": 1003,
+        "name": "莲藕排骨汤",
+        "description": "玉米香甜，莲藕粉脆，😭😭太好喝了！",
+        "image": "https://i2.chuimg.com/1465ef0376994583ba458aa541bb70af_1179w_1511h.jpg?imageView2/1/w/640/h/520/q/75/format/jpg",
+        "ingredients": [
+            {
+                "name": "排骨",
+                "amount": "2根"
+            },
+            {
+                "name": "莲藕",
+                "amount": "1节"
+            },
+            {
+                "name": "胡萝卜",
+                "amount": "半根"
+            },
+            {
+                "name": "玉米",
+                "amount": "1根"
+            }
+        ],
+        "step": [
+            {
+                "image": "https://i2.chuimg.com/70a02dea53c447709a55142204df1896_852w_681h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "准备食材：莲藕，胡萝卜🥕，玉米🌽"
+            },
+            {
+                "image": "https://i2.chuimg.com/884b4d4169c341d489f86bb107634ffe_900w_720h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "剁好的2根排骨洗干净"
+            },
+            {
+                "image": "https://i2.chuimg.com/84e37f57b8ff482fb045eb7f041ca0a9_854w_683h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "排骨剁小块，锅中倒入适量清水，排骨放入锅中，加去腥三件套（葱姜料酒）"
+            },
+            {
+                "image": "https://i2.chuimg.com/7cce37be8b4c45bfb86b9336713d149b_839w_671h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "煮几分钟去血沫，捞出洗干净水分"
+            },
+            {
+                "image": "https://i2.chuimg.com/c5a7d3178b8e406d9079243237a79c6c_889w_711h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "锅留底油，葱姜爆香"
+            },
+            {
+                "image": "https://i2.chuimg.com/c1bf6faa3e474dc9918d1637f92624ed_871w_697h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "排骨煎至两面金黄"
+            },
+            {
+                "image": "https://i2.chuimg.com/a89ec6962810480abd05c22f65afff3e_1048w_838h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "倒入开水没过排骨"
+            },
+            {
+                "image": "https://i2.chuimg.com/044d7fc80b47420bb0320d81e8f20e64_901w_720h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "放入所需食材"
+            },
+            {
+                "image": "https://i2.chuimg.com/2e656261933746198be954327598ed46_849w_679h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "扣盖小火炖煮30/40分钟"
+            },
+            {
+                "image": "https://i2.chuimg.com/1288a85c628b45a584f2b7bf016f4b71_931w_745h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "出锅前加点盐调味，撒点葱花"
+            },
+            {
+                "image": "https://i2.chuimg.com/f516375a464940eea1a7676964196ab8_1179w_1525h.jpg?imageView2/1/w/800/h/600/q/75/format/jpg",
+                "description": "一锅鲜香满满的莲藕排骨汤汤就做好了，是不是非常简单"
             }
         ],
         "url": "",

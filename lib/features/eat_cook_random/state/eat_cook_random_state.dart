@@ -8,7 +8,7 @@ class EatCookRandomState {
   int soupCount = 1;
 
   /// 随机结果
-  EatCookModel? randomResult;
+  List<EatCookModel>? randomResultList;
 
   /// 励志话语
   List<String> motivationalWords = [

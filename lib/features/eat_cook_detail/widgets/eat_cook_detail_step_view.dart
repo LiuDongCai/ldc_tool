@@ -85,7 +85,6 @@ class _EatCookDetailStepViewState extends State<EatCookDetailStepView>
     Widget resultWidget = DCCachedImage(
       step.image ?? '',
       width: double.infinity,
-      height: 200.w,
     );
     resultWidget = ClipRRect(
       borderRadius: BorderRadius.circular(4.w),
